@@ -1,0 +1,39 @@
+\clearpage
+\section{Segunda batería: resultados ampliados del 25 de septiembre}
+
+El documento de trabajo \archivo{fuentes/INFORME_ANALISIS_EXPANDIDO_96.md} motivó esta ampliación. Para las cifras se usan sus archivos originales, copiados en \archivo{datos/ampliada/}. La batería realizó \textbf{75 ejecuciones únicas}: 40 por Ethernet y 35 por Wi-Fi. Se conservan los cinco valores de $P=1,24,48,72,96$. Trapecio mantiene $n=10^8$ y $10^{11}$; matrices añade $N=512$ y $4096$ a ambas redes, y $N=6144$ solo a Ethernet. Los lanzadores y el programa 1D-tiled son los mismos de la primera batería.
+
+El CSV consolidado y los dos CSV de tiempos coinciden con las 75 líneas de resultado de los 75 logs. También coinciden la traza y la suma ponderada de cada tamaño de matriz entre sus configuraciones, a la precisión impresa. Esta comprobación detecta discrepancias entre corridas, pero no sustituye una verificación elemento a elemento. Como se hizo una ejecución por configuración, las diferencias pequeñas pueden depender de las condiciones de ese momento.
+
+\subsection{Trapecio: el trabajo largo sigue escalando}
+\input{tablas/ampliada_trapecio}
+
+Con $10^{11}$ trapecios, los 96 procesos tardaron 0.974949 s por Ethernet y 1.135211 s por Wi-Fi. Las aceleraciones respecto a un proceso de la \emph{misma red y la misma batería} fueron 68.20 y 58.89. Con $10^8$ por Wi-Fi, 96 procesos tardaron 0.115863 s frente a 0.067826 s con uno: para esta carga breve el coste de comunicar y sincronizar anuló la ventaja del paralelismo.
+
+\subsection{Matrices: un nodo completo sigue siendo el mejor punto}
+\input{tablas/ampliada_matrices}
+
+El menor tiempo de cada tamaño medido corresponde a $P=24$, es decir, los 24 procesos dentro de \texttt{servidor}. Para $N=3072$, $P=24$ tardó 0.547426 s por cable y 0.552753 s por Wi-Fi; $P=96$ tardó 6.148198 y 99.944942 s. Para $N=4096$, la corrida Wi-Fi con 96 procesos llegó a 178.957201 s.
+
+La matriz de $6144\times6144$ se midió solo por Ethernet: 32.887841 s con un proceso, 3.839080 s con 24 y 25.036958 s con 96. Así, 96 procesos superaron al proceso único por 1.31 veces, pero tardaron \textbf{6.52 veces más} que el nodo completo. El punto de cruce frente a un proceso se sitúa entre los tamaños 4096 y 6144 observados; no se midió un tamaño intermedio ni se encontró un cruce frente a 24 procesos.
+
+\clearpage
+\figura{ampliada_matrices.pdf}{1}{Segunda batería de matrices. Cada panel usa escala vertical lineal propia y anota los tiempos medidos en segundos; no se comparan alturas de paneles con escalas diferentes. Una ejecución por punto.}
+
+\subsection{Qué miden los MB nuevos}
+El script \archivo{ejecutar_bateria_expandida.py} lee \archivo{tx_bytes} y \archivo{rx_bytes} en la interfaz de \emph{servidor} antes y después de cada lanzamiento. La columna \archivo{mb_real_master} es la \textbf{suma TX+RX de esa interfaz durante toda la ejecución del comando}, incluido el arranque de MPI. Puede contener tráfico ajeno. No incluye las interfaces de los tres workers ni separa \archivo{MPI_Bcast}, \archivo{MPI_Scatterv} y \archivo{MPI_Gatherv}.
+
+\input{tablas/ampliada_mb}
+
+Para $N=3072$ y $P=96$, el modelo ideal de carga útil da 339.74 MB, mientras la interfaz del servidor registró 516.72 MB por Ethernet y 500.88 MB por Wi-Fi en TX+RX. \textbf{Modelo y contador tienen alcances distintos}; la diferencia no identifica por sí sola el algoritmo colectivo. Los 357--358 MB de otra serie histórica sumaban únicamente TX en varios nodos y con otra configuración, por lo que no se deben equiparar con estos números.
+
+Los ping se tomaron una vez \emph{antes} de iniciar las dos fases de la batería, no durante cada prueba:
+\input{tablas/ampliada_ping}
+Sirven como contexto de red en ese instante; no explican por sí solos la variación de una ejecución posterior.
+
+\subsection{Exploración de núcleos P y E}
+El documento ampliado describe un microbenchmark local de 24 núcleos y un prototipo de trapecio con reparto ponderado. Se conservan sus fuentes en \archivo{fuentes/exploratorios/}. El borrador informa una razón de rendimiento P/E de 1.2658 para su cálculo de trapecio y tiempos mejores con reparto ponderado. No se conservaron las salidas individuales de esas pruebas junto a la batería de 75 logs, y el prototipo no se usó en ella. Por eso esta línea se presenta como \textbf{exploratoria}, sin convertir la reducción de espera declarada en una conclusión reproducida.
+
+Además, el prototipo \archivo{trapecio_asimetrico.c} recorre índices de $0$ a $n-1$ y nunca evalúa el extremo $i=n$. Le falta el término final $f(1)h/2$ de la regla del trapecio; debe corregirse antes de comparar su precisión con el programa principal.
+
+El borrador también propone que 128 GB agregados permitirían multiplicar matrices mucho mayores con el programa actual. Sin embargo, en la implementación 1D \textbf{cada proceso reserva la matriz $B$ completa} y el rango 0 conserva $A$, $B$ y $C$. Esa memoria no se combina automáticamente entre nodos. La batería más grande ejecutada fue $N=6144$; no se midió la capacidad ni el tiempo para $N\approx45\,500$.

@@ -5,20 +5,26 @@ Este laboratorio estudia cuándo conviene repartir un cálculo entre varias comp
 La pregunta central es: \textbf{¿cuánto tiempo ahorramos al repartir el cálculo y cuánto perdemos al comunicar los datos?} Los dos problemas permiten observar situaciones diferentes. Trapecio realiza mucho cálculo y comunica un resultado pequeño. Las matrices necesitan distribuir y reunir grandes cantidades de datos.
 
 \begin{idea}
-\textbf{Lo que encontramos.} Con $10^{11}$ trapecios, Ethernet pasa de 66.114 s con un proceso a 0.964 s con 96: una aceleración de 68.56 veces. En matrices de $3072\times3072$, el mejor punto de la batería actual es \textbf{24 procesos en una computadora}: 0.512 s por Ethernet y 0.553 s en la configuración Wi-Fi. Con 96 procesos, los tiempos aumentan a 6.175 s y 101.042 s, respectivamente.
+\textbf{Lo que encontramos.} Las dos baterías coinciden en la conclusión principal: el trapecio grande aprovecha los 96 procesos, mientras que para todas las matrices medidas el mejor tiempo se obtiene con \textbf{24 procesos en una computadora}. La segunda batería amplía los tamaños hasta $N=6144$ por Ethernet y mide también los contadores TX+RX del servidor.
+\end{idea}
+
+\begin{idea}
+\textbf{El caso que motivó el estudio: 15 minutos por Wi-Fi.} A las 00:58:05 del 24 de septiembre, multiplicar matrices de $3072\times3072$ con \textbf{8 procesos} tardó \textbf{906.351 s}. El log registró un máximo de \textbf{889.744 s en \archivo{MPI_Bcast(B)}} y solo \textbf{1.735 s de cálculo}. El cociente $889.744/906.351=98.17\%$ muestra dónde se concentró el tiempo registrado; los máximos por fase pueden corresponder a rangos distintos y no se suman. En esta ejecución no se midieron MB transmitidos.
 \end{idea}
 
 \subsection{Qué datos usa este informe}
-La batería actual contiene \textbf{25 configuraciones por red}, con una ejecución de cada configuración: diez de trapecio y quince de matrices. Los resultados originales se conservaron en:
+El informe distingue dos baterías, sin mezclar sus tiempos para calcular promedios. La primera, del 24 de septiembre, contiene \textbf{25 configuraciones por red}, con una ejecución de cada una: diez de trapecio y quince de matrices. Los resultados originales se conservaron en:
 \begin{itemize}
 \item Ethernet: \archivo{experimentos_96/resultados/20260924_202548_RnIhhM/}.
 \item Wi-Fi: \archivo{experimentos_96/resultados_wifi/20260924_203957_VSNY0P/}.
 \end{itemize}
-Las rutas parten de \archivo{/home/alumno16/}. Las tablas se generaron leyendo los CSV y comprobando su coincidencia con las líneas \archivo{RESULT_TRAP} y \archivo{RESULT_2D} de los 50 logs. No se ejecutaron nuevos benchmarks para redactar este documento.
+Las rutas parten de \archivo{/home/alumno16/}. Las tablas de esa primera batería se generaron leyendo los CSV y cotejándolos con las líneas \archivo{RESULT_TRAP} y \archivo{RESULT_2D} de los 50 logs.
+
+La segunda batería, del 25 de septiembre, está en \archivo{experimentos_96/bateria_expandida/20260925_003457/}: \textbf{75 ejecuciones}, con 40 casos Ethernet y 35 Wi-Fi. El informe la presenta en una sección propia y conserva sus 75 logs, CSV, JSON y el borrador \archivo{INFORME_ANALISIS_EXPANDIDO_96.md} como fuentes. El borrador se revisó contra los registros antes de incorporar sus afirmaciones.
 
 El código, los datos y la fuente de este informe están versionados en el repositorio privado \url{https://github.com/dtamotu/cluster-mpi-96}.
 
-Los registros de madrugada y mediodía se usan como \textbf{antecedentes identificados por hora, versión, número de procesos y repeticiones}. No se mezclan con la batería actual para calcular promedios. En particular, la prueba de 906 s y la prueba que transmitió 1112 MB fueron ejecuciones diferentes.
+Los registros de madrugada y mediodía se usan como \textbf{antecedentes identificados por hora, versión, número de procesos y repeticiones}. No se mezclan con las dos baterías para calcular promedios. En particular, la prueba de 906 s y la prueba que transmitió 1112 MB fueron ejecuciones diferentes.
 
 \subsection{Cómo leer las cifras}
 Todos los tiempos son segundos medidos dentro del programa con \archivo{MPI_Wtime}. Se usa punto decimal. Los tamaños de tráfico están en \textbf{MB decimales}, donde $1\,\mathrm{MB}=10^6$ bytes. Los gráficos usan escala lineal y muestran los valores; algunas figuras separan las redes con escalas verticales diferentes para hacer visibles sus resultados.
@@ -92,7 +98,7 @@ con $n$ trapecios de ancho $h=1/n$. Cada proceso calcula un tramo contiguo. Cuan
 Durante el intervalo medido hay una reducción del resultado: \textbf{un \texttt{double} por proceso}, además de la coordinación propia de MPI. Después del cronometraje se ejecutan otras cuatro reducciones para resumir los tiempos. No se debe confundir el tamaño del dato matemático con todos los bytes transmitidos por MPI, TCP y SSH.
 
 \subsection{Matrices: filas entre procesos y bloques dentro de cada proceso}
-Se calcula $C=A B$, con matrices cuadradas de dobles. La batería actual ejecuta:
+Se calcula $C=A B$, con matrices cuadradas de dobles. Ambas baterías ejecutan:
 \begin{lstlisting}[language=bash]
 /var/tmp/mpi_bloques/mpi_matrix_2d N 1d tiled 64
 \end{lstlisting}
@@ -106,7 +112,7 @@ El nombre del ejecutable conserva \texttt{2d}, pero el argumento \texttt{1d} sel
 
 \archivo{Bcast} distribuye el mismo dato a todos; \archivo{Gatherv} reúne partes de distintos tamaños en un destino. Las variantes con \texttt{v} permiten repartir filas aunque $N$ no sea múltiplo de $P$. Con $N=3072$ y $P=96$, cada proceso recibe exactamente 32 filas.
 
-\textbf{Bloques de caché} y \textbf{partición 2D} son cambios diferentes. El kernel \texttt{tiled 64} reorganiza el cálculo local en teselas para reutilizar datos. SUMMA distribuye bloques de las matrices en una malla de procesos; esta implementación exige $P=q^2$ y $N$ divisible por $q$. Como 96 no es cuadrado perfecto, la batería actual usa 1D. Esto es una restricción del código disponible, no una imposibilidad general de usar una malla rectangular con 96 procesos.
+\textbf{Bloques de caché} y \textbf{partición 2D} son cambios diferentes. El kernel \texttt{tiled 64} reorganiza el cálculo local en teselas para reutilizar datos. SUMMA distribuye bloques de las matrices en una malla de procesos; esta implementación exige $P=q^2$ y $N$ divisible por $q$. Como 96 no es cuadrado perfecto, ambas baterías usan 1D. Esto es una restricción del código disponible, no una imposibilidad general de usar una malla rectangular con 96 procesos.
 
 \clearpage
 \section{Diseño con la metodología de Foster}
@@ -138,10 +144,10 @@ Matrices 1D-tiled & 1024, 2048, 3072 & 1, 24, 48, 72, 96 \\
 \bottomrule
 \end{tabular}\end{center}
 
-Se ejecutan las mismas 25 configuraciones en las dos redes. En las corridas actuales se completó primero Ethernet y después Wi-Fi, sin alternancia ni aleatorización. Se realizó una sola ejecución por configuración, por decisión de simplificar la batería.
+En la primera batería se ejecutaron las mismas 25 configuraciones en las dos redes. Se completó primero Ethernet y después Wi-Fi, sin alternancia ni aleatorización. La segunda amplió los tamaños y ejecutó 40 casos por Ethernet y 35 por Wi-Fi. Se realizó una sola ejecución por configuración en ambas.
 
 \begin{idea}
-Los resultados actuales describen \textbf{lo observado en esas ejecuciones}. Una medición permite calcular tiempo, speedup y eficiencia, pero no permite estimar dispersión, intervalos de confianza o estabilidad. Las diferencias pequeñas entre redes deben interpretarse con especial cuidado.
+Los resultados de ambas baterías describen \textbf{lo observado en esas ejecuciones}. Una medición permite calcular tiempo, speedup y eficiencia, pero no permite estimar dispersión, intervalos de confianza o estabilidad. Las diferencias pequeñas entre redes deben interpretarse con especial cuidado.
 \end{idea}
 
 La selección de tamaños ofrece dos contrastes: trapecio pequeño hace visible el costo de coordinación; trapecio grande lo amortiza. En matrices, añadir procesos reduce el cálculo local, pero no elimina la obligación de mover $A$, $B$ y $C$. Pasar de 24 a 48 procesos cambia a la vez el número de núcleos y el número de nodos: ahí aparece la comunicación entre computadoras.
@@ -152,7 +158,7 @@ La selección de tamaños ofrece dos contrastes: trapecio pequeño hace visible 
 \subsection{El tiempo que queda en el CSV}
 El programa llama a \archivo{MPI_Barrier} antes de iniciar \archivo{MPI_Wtime}. En matrices, el intervalo incluye distribución, cálculo, recolección y barrera final. En trapecio, incluye el cálculo local y la reducción del resultado. Se informa el máximo de los intervalos locales de los procesos.
 
-El tiempo \archivo{T_Total} \textbf{no incluye} iniciar \texttt{mpirun}, arrancar por SSH, \archivo{MPI_Init}, preparar las matrices ni calcular los checksums finales. No se utiliza tiempo pared externo en las comparaciones actuales.
+El tiempo \archivo{T_Total} \textbf{no incluye} iniciar \texttt{mpirun}, arrancar por SSH, \archivo{MPI_Init}, preparar las matrices ni calcular los checksums finales. Ambas comparaciones usan \archivo{T_Total}. La segunda batería también guarda \archivo{wall_time_s} como metadato, pero no lo usa para calcular speedup.
 
 \begin{lstlisting}[language=C]
 MPI_Barrier(MPI_COMM_WORLD);
@@ -179,7 +185,7 @@ Para observar solo la ampliación de uno a cuatro nodos completos también usamo
 \archivo{T_Dist}, \archivo{T_Calc} y \archivo{T_Gather} son máximos calculados por separado. Pueden corresponder a procesos diferentes y contener esperas. Mientras un proceso ya entró a reunir resultados, otro aún puede estar recibiendo datos o calculando. Por eso \textbf{no apilamos las fases ni calculamos porcentajes sumándolas}. Tampoco interpretamos \archivo{T_Reduce} como latencia pura: puede incluir espera al proceso que termina de calcular más tarde.
 
 \subsection{Comprobaciones de consistencia}
-Se cotejaron las 50 líneas de resultado con sus CSV. Las 30 ejecuciones actuales de matrices presentan las mismas huellas para cada tamaño, a la precisión impresa. Son verificaciones de consistencia, no una demostración de igualdad elemento a elemento. Los scripts de medición extraen el tiempo; la revisión de huellas se hizo al generar este informe.
+En la primera batería se cotejaron las 50 líneas de resultado con sus CSV. Sus 30 ejecuciones de matrices presentan las mismas huellas para cada tamaño, a la precisión impresa. En la segunda se cotejaron las 75 líneas y sus huellas. Son verificaciones de consistencia, no una demostración de igualdad elemento a elemento. Los scripts de medición extraen el tiempo; la revisión de huellas se hizo al generar este informe.
 
 \clearpage
 \section{Qué mejoró al trabajar por bloques}
@@ -187,7 +193,7 @@ Se cotejaron las 50 líneas de resultado con sus CSV. Las 30 ejecuciones actuale
 El bucle \texttt{ikj} recorre $B$ completa por cada fila local de $A$. Para $N=3072$, $B$ ocupa 75.497472 MB, un volumen mayor que los 36 MB de L3 documentados. El kernel \texttt{tiled} modifica el orden de recorrido para reutilizar paneles de $B$ y teselas de $C$ antes de pasar al siguiente bloque.
 
 \subsection{Evidencia histórica en una sola computadora}
-La siguiente tabla usa las \textbf{medianas de tres ejecuciones locales} de \archivo{resultados_bloques.json}, para $N=3072$. Es un antecedente del cambio de kernel; no pertenece a las 50 mediciones actuales.
+La siguiente tabla usa las \textbf{medianas de tres ejecuciones locales} de \archivo{resultados_bloques.json}, para $N=3072$. Es un antecedente del cambio de kernel; no pertenece a las 50 mediciones de la primera batería.
 \input{tablas/local_historico}
 
 Con 16 procesos, pasar de 1D-ikj a 1D-tiled reduce el tiempo de 5.484 s a 0.474 s: aproximadamente 11.57 veces. El mejor tiempo 2D-tiled de esta tabla es 0.381 s. Estos datos muestran que la organización del cálculo local importa incluso cuando no hay red entre computadoras.
@@ -206,7 +212,7 @@ Optimizar el cálculo local no elimina el tráfico de la partición 1D. \texttt{
 \end{idea}
 
 \clearpage
-\section{Resultados actuales del trapecio}
+\section{Primera batería: resultados del trapecio}
 
 En las tablas, $T_E$ es Ethernet, $T_W$ es Wi-Fi, $S_E$ y $S_W$ son speedups respecto de un proceso. Cada celda de tiempo proviene de una ejecución.
 
@@ -235,7 +241,7 @@ El clúster combina núcleos P y E, reparte casi el mismo número de trapecios a
 La eficiencia medida de 71.42\% \textbf{no se puede atribuir exactamente a la relación de frecuencias P/E}. Las frecuencias máximas no son las frecuencias sostenidas y no resumen por sí solas el rendimiento. Las mediciones muestran el efecto final; no aíslan cuánto corresponde a cada causa.
 
 \clearpage
-\section{Resultados actuales de multiplicación de matrices}
+\section{Primera batería: multiplicación de matrices}
 
 Todas estas filas usan \textbf{1D-tiled con bloque 64}. $P=1$ y $P=24$ se ejecutan en un solo nodo; los siguientes puntos utilizan dos, tres y cuatro nodos.
 
@@ -248,7 +254,7 @@ Todas estas filas usan \textbf{1D-tiled con bloque 64}. $P=1$ y $P=24$ se ejecut
 \subsection{Matriz \texorpdfstring{$3072\times3072$}{3072 x 3072}}
 \input{tablas/matrices_3072}
 
-En los tres tamaños, \textbf{24 procesos es el mejor punto de la batería actual}. Para $N=3072$, Ethernet baja de 3.816321 s a 0.512022 s: mejora 7.45 veces. Al pasar a 48 procesos el tiempo aumenta a 2.815416 s, y con 96 llega a 6.174707 s, incluso por encima de la referencia de un proceso.
+En los tres tamaños, \textbf{24 procesos es el mejor punto de la primera batería}. Para $N=3072$, Ethernet baja de 3.816321 s a 0.512022 s: mejora 7.45 veces. Al pasar a 48 procesos el tiempo aumenta a 2.815416 s, y con 96 llega a 6.174707 s, incluso por encima de la referencia de un proceso.
 
 La misma tendencia es más fuerte por Wi-Fi: de 0.553372 s con 24 procesos se pasa a 101.042337 s con 96. Para ese tamaño, usar cuatro nodos tarda aproximadamente \textbf{182.59 veces} lo que tarda un nodo con 24 procesos bajo la configuración Wi-Fi.
 
@@ -271,7 +277,7 @@ Con 96 procesos, el cálculo máximo es aproximadamente 0.105 s por cable y 0.10
 El cálculo medido es parecido, mientras la distribución y la recolección son mucho mayores por Wi-Fi. Esa es la evidencia directa del cuello de botella de comunicación. Cada fase también puede incorporar esperas; estas mediciones no separan ancho de banda, sincronización y retransmisiones. Como se explicó antes, \textbf{las columnas no son sumables}.
 
 \subsection{Verificación de las matrices calculadas}
-Para cada tamaño, las diez ejecuciones actuales (cinco valores de $P$ por dos redes) imprimen la misma suma de la diagonal y la misma suma ponderada:
+Para cada tamaño de la primera batería, sus diez ejecuciones (cinco valores de $P$ por dos redes) imprimen la misma suma de la diagonal y la misma suma ponderada:
 \input{tablas/checksums}
 La coincidencia permite detectar errores evidentes de reparto o colocación. No sustituye una comparación elemento a elemento ni garantiza que no exista un error compartido por todas las ejecuciones.
 
@@ -279,14 +285,32 @@ La coincidencia permite detectar errores evidentes de reparto o colocación. No 
 En una exposición, el contraste más claro es $N=3072$ con $P=24$ y $P=96$. Dentro de un nodo se aprovechan varios núcleos sin mover matrices por la red. Al utilizar cuatro nodos, cada proceso calcula menos, pero aparecen transferencias y esperas mucho mayores.
 \end{idea}
 
+\input{ampliacion}
 \clearpage
-\section{Qué ocurrió en las pruebas de madrugada}
+\section{La madrugada: 906 segundos y el costo de difundir \texorpdfstring{$B$}{B}}
 
-\subsection{Primera serie: hasta 15 minutos con el programa original}
-Entre las 00:37 y 01:37 del 24/09 se repitieron pruebas del ejecutable \archivo{/tmp/mpi_matrix_profiling}, con bucle \texttt{ikj}. El archivo \archivo{resultados_profiling_repeticion.json} separa el tiempo de \archivo{MPI_Bcast} del de \archivo{MPI_Scatterv}. Para $N=3072$:
+\subsection{Caso central: el comando y el registro de las 00:58}
+La imagen que motivó esta revisión resume una ejecución concreta. \archivo{repetir_profiling_cluster.py} lanzó \archivo{/tmp/mpi_matrix_profiling} con $N=3072$, ocho procesos y dos procesos en cada una de las cuatro computadoras. Su comando efectivo fue:
+\begin{lstlisting}[language=bash]
+mpirun -H servidor:2,workers1:2,workers2:2,workers4:2 -np 8 \
+  --mca btl_tcp_if_include 10.7.134.0/23 \
+  --mca oob_tcp_if_include 10.7.134.0/23 \
+  /tmp/mpi_matrix_profiling 3072
+\end{lstlisting}
+El registro conservado en \archivo{datos/historicos/repetir_profiling_cluster.log} dice:
+\begin{lstlisting}
+[2026-09-24T00:58:05] rep 1/2 N=3072 cluster_8p ...
+ -> Total=906.35s Calc=1.74s Bcast=889.74s
+\end{lstlisting}
+
+\begin{idea}
+\textbf{La observación decisiva:} el máximo de \archivo{MPI_Bcast(B)} fue \textbf{889.744 s}, frente a \textbf{906.351 s} totales y \textbf{1.735 s} de cálculo. El cociente \textbf{98.17\%} indica que la espera registrada en la difusión dominó esta corrida. El programa original usaba franjas 1D y kernel \texttt{ikj} sin teselas. El comando seleccionaba la subred Wi-Fi, pero no fijaba afinidad ni componentes BTL; eso \emph{no demuestra} que toda la comunicación local viajara por TCP.
+\end{idea}
+
+Entre las 00:37 y 01:37 del 24/09 se repitieron las pruebas del mismo ejecutable. El archivo \archivo{resultados_profiling_repeticion.json} separa los máximos de \archivo{MPI_Bcast} y \archivo{MPI_Scatterv}. Para $N=3072$:
 \input{tablas/madrugada_original}
 
-La ejecución de \textbf{906.351 s} empezó a las 00:58:05 y utilizó \textbf{8 procesos, dos en cada nodo}. El mayor tiempo de \archivo{Bcast} fue 889.744 s y el de cálculo, 1.735 s. La segunda repetición de la misma configuración tardó 322.513 s y tuvo un tiempo de cálculo casi idéntico. Esto localiza la variación en la comunicación y las esperas, no en un aumento del trabajo matemático.
+La segunda repetición de la misma configuración tardó 322.513 s y tuvo un tiempo de cálculo casi idéntico. Esto localiza la variación en la comunicación y las esperas, no en un aumento del trabajo matemático.
 
 \textbf{Esta serie no registró MB transmitidos.} Por ello no le asignamos los 1112 MB observados después con otro ejecutable y 16 procesos. La fuente tampoco permite sumar máximos de \texttt{Bcast} y \texttt{Gather}: en la corrida de 906 s, ambos contienen esperas de procesos distintos.
 
@@ -318,7 +342,7 @@ Aquí aparecen dos observaciones útiles:
 \item Con 64 procesos por cable, 1D-tiled registra unos 357.79 MB; con 16 procesos por cable registra unos 1151.70 MB. Ambos lanzamientos históricos carecían de la selección explícita \archivo{btl self,vader,tcp}. Por tanto, el cambio de volumen no se puede atribuir únicamente a haber añadido esa opción en los scripts actuales.
 \end{enumerate}
 
-\textbf{Los 357--358 MB son mediciones de esta serie histórica, no de la batería actual de 96 procesos.} La batería actual conserva tiempos y logs, pero no muestrea los contadores de red. Tampoco se deben presentar los 5.29--5.64 s de 1D-tiled con 16 procesos como repeticiones Wi-Fi: esos valores son de Ethernet.
+\textbf{Los 357--358 MB son mediciones de esta serie histórica, no de la primera batería de 96 procesos.} La primera batería conserva tiempos y logs, pero no muestrea los contadores de red. La segunda sí registra TX+RX del servidor, una magnitud diferente. Tampoco se deben presentar los 5.29--5.64 s de 1D-tiled con 16 procesos como repeticiones Wi-Fi: esos valores son de Ethernet.
 
 Al comparar la madrugada con el mediodía, 1D-ikj con 16 procesos pasó de una mediana de 330.818 s a una corrida Wi-Fi de 198.721 s. El volumen fue parecido (unos 1112 frente a 1120 MB), lo que es compatible con variaciones del rendimiento efectivo de la red. No se controlaron las condiciones del punto de acceso para atribuir la diferencia a una causa única.
 
@@ -421,21 +445,21 @@ Total bajo el segundo supuesto & $13.5M$ & 1019.22 \\
 
 Estos son \textbf{modelos de carga útil}, sin cabeceras ni control. El segundo produce un volumen del mismo orden que los 1112 MB observados, pero esa cercanía no identifica de forma única el algoritmo. No se puede asignar toda la diferencia a un porcentaje fijo de cabeceras ni deducir un número exacto de copias a partir del total.
 
-El modelo de 339.74 MB es compatible en orden de magnitud con los 357--358 MB históricos de ciertas configuraciones. Para la batería actual con 96 procesos, el tráfico medido es \textbf{no disponible}. Por eso no presentamos 357 MB como medición actual ni calculamos un ancho de banda observado de la corrida actual usando esa cifra supuesta.
+El modelo de 339.74 MB es compatible en orden de magnitud con los 357--358 MB históricos de ciertas configuraciones. Para la \textbf{primera batería} con 96 procesos, el tráfico medido no está disponible. La segunda registró TX+RX solo del servidor, según se explica en su sección; las cifras no son directamente comparables. Por eso no presentamos 357 MB como medición de ninguna de las dos baterías ni calculamos un ancho de banda observado con esa cifra supuesta.
 
 \clearpage
 \section{Conclusiones y límites de lo que podemos defender}
 
 \begin{enumerate}
-\item \textbf{El tipo de problema determina si conviene distribuirlo.} Trapecio grande obtiene 68.56 veces la velocidad de un proceso por Ethernet con 96 procesos. Matrices de $N=3072$ funciona mejor con 24 procesos en un nodo que con 96 en cuatro nodos.
-\item \textbf{La red explica gran parte de la penalización de matrices.} Con 96 procesos, el cálculo máximo ronda 0.10 s en ambas redes, mientras el total es 6.175 s por cable y 101.042 s por Wi-Fi. Las fases de distribución y reunión concentran los tiempos grandes.
+\item \textbf{El tipo de problema determina si conviene distribuirlo.} Trapecio grande obtiene aceleraciones de 68.56 y 68.20 por Ethernet con 96 procesos en la primera y segunda batería, respectivamente. Matrices de $N=3072$ funciona mejor con 24 procesos en un nodo que con 96 en cuatro nodos en ambas.
+\item \textbf{La comunicación explica gran parte de la penalización de matrices.} En la primera batería, con 96 procesos y $N=3072$, el cálculo máximo ronda 0.10 s en ambas redes, mientras el total es 6.175 s por cable y 101.042 s por Wi-Fi. Las fases de distribución y reunión concentran los tiempos grandes. La segunda batería confirma que el menor tiempo se obtuvo con 24 procesos para todos los tamaños medidos.
 \item \textbf{La lentitud de madrugada está registrada.} La corrida de 906.351 s usó 8 procesos y pasó 889.744 s en el máximo de \texttt{Bcast}. Otra serie, con 16 procesos, midió unos 1112 MB en 1D y 423 MB en 2D. No son cifras de una misma ejecución.
 \item \textbf{Optimizar caché y reducir tráfico son mejoras distintas.} Los bloques aceleran el cálculo local. La partición 2D cambia las comunicaciones. Añadir \texttt{vader} explicita los transportes, pero no prueba por sí solo la causa del cambio de volumen.
-\item \textbf{Las mediciones actuales permiten comparar estas corridas, no estimar estabilidad.} Se hizo una ejecución por caso, en horarios diferentes para cada red. La variación histórica muestra por qué no debe describirse un tiempo Wi-Fi como garantizado.
+\item \textbf{Las dos baterías permiten comparar sus configuraciones, no estimar estabilidad.} Se hizo una ejecución por caso. La variación histórica muestra por qué no debe describirse un tiempo Wi-Fi como garantizado.
 \end{enumerate}
 
 \subsection{Qué cambió respecto del informe anterior}
-Ahora sí se usa Ethernet, ya no queda como una propuesta futura. Se incorporó trapecio, se llegó a 96 procesos y se incluyó un punto explícito con un nodo completo. Los lanzadores son Bash, los tiempos se guardan en CSV y los análisis calculan speedup y eficiencia al terminar. Se conserva la ejecución única elegida para simplificar la batería y se excluye el tiempo pared externo.
+Ahora sí se usa Ethernet, ya no queda como una propuesta futura. Se incorporó trapecio, se llegó a 96 procesos y se incluyó un punto explícito con un nodo completo. La segunda batería amplió tamaños, registró TX+RX del servidor y contrastó sus 75 logs con CSV y JSON. Los tiempos comparados se guardan en CSV como \archivo{T_Total}; los análisis calculan speedup y eficiencia después de las ejecuciones. Se conserva la ejecución única elegida para simplificar las pruebas.
 
 \subsection{Qué haría falta para confirmar las causas pendientes}
 Una prueba causal mantendría $N$, $P$, kernel y asignación constantes, cambiando una sola opción por vez. Registrar el componente colectivo, el algoritmo y los bytes por nodo permitiría contrastar la hipótesis de difusión. Contadores TCP/radio ayudarían a estudiar reintentos y contadores de memoria a contrastar el modelo de caché. Estas verificaciones quedan \textbf{propuestas}; no se presentan como experimentos ya realizados.

@@ -125,7 +125,7 @@ T_Gather=58.381650, T_Total=101.042337
 \clearpage
 \section{Cómo registrar los MB en una próxima ejecución}
 
-La batería actual no guarda MB. Para una futura prueba puntual se incluye \archivo{medir_trafico.sh}. Lee los contadores de la interfaz elegida en los cuatro nodos y llama al lanzador existente una sola vez. Consulta los workers por Ethernet para reducir el tráfico de control agregado a una medición Wi-Fi; al medir Ethernet esas consultas sí pueden contribuir al contador. Sigue siendo una medida de interfaces, sin aislamiento de tráfico ajeno.
+La primera batería no guarda MB; la segunda registra solo TX+RX del servidor. Para una futura prueba puntual que mida las cuatro interfaces se incluye \archivo{medir_trafico.sh}. Lee los contadores de la interfaz elegida en los cuatro nodos y llama al lanzador existente una sola vez. Consulta los workers por Ethernet para reducir el tráfico de control agregado a una medición Wi-Fi; al medir Ethernet esas consultas sí pueden contribuir al contador. Sigue siendo una medida de interfaces, sin aislamiento de tráfico ajeno.
 
 \begin{lstlisting}[language=bash]
 cd /home/alumno16/informe_actual_96
@@ -172,19 +172,23 @@ El paquete del informe incluye una copia de la evidencia necesaria para reproduc
 \toprule
 Ruta dentro del informe & Contenido \\
 \midrule
-\archivo{datos/ethernet/} & 25 resultados actuales y sus logs por cable. \\
-\archivo{datos/wifi/} & 25 resultados actuales y sus logs Wi-Fi. \\
+\archivo{datos/ethernet/} & 25 resultados de la primera batería y sus logs por cable. \\
+\archivo{datos/wifi/} & 25 resultados de la primera batería y sus logs Wi-Fi. \\
+\archivo{datos/ampliada/} & 75 logs y cuatro archivos de resultados de la segunda batería. \\
+\archivo{datos/procedencia_ampliada.json} & Rutas y SHA-256 de los 79 archivos nuevos de evidencia y tres fuentes añadidas. \\
 \archivo{datos/historicos/resultados_profiling_repeticion.json} & Primera serie de madrugada; contiene los 906.351 s con 8 procesos. \\
 \archivo{datos/historicos/resultados_bloques.json} & Caché, escalado local y serie de madrugada con MB y dos repeticiones en el clúster. \\
 \archivo{datos/historicos/resultados_matrices_eth_vs_wifi.json} & Serie del mediodía con tiempos y MB por red. \\
 \archivo{src/} & Fuentes actuales de trapecio, matrices y kernels. \\
+\archivo{fuentes/INFORME_ANALISIS_EXPANDIDO_96.md} & Borrador de análisis conservado como fuente, con sus afirmaciones revisadas. \\
+\archivo{fuentes/exploratorios/} & Prototipos de núcleos P/E, sin salidas individuales verificables en la batería. \\
 \archivo{scripts/} & Copias de lanzadores, medición, gráficos y configuración SSH. \\
-\archivo{generar_datos.py} & Lee la evidencia, valida consistencia y genera tablas y cinco figuras. \\
+\archivo{generar_datos.py} & Lee la evidencia, valida consistencia y genera tablas y seis figuras. \\
 \archivo{medir_trafico.sh} & Herramienta opcional para una futura medición de MB. \\
 \bottomrule
 \end{tabularx}\end{center}
 
-El contexto actualizado del proyecto orientó la revisión, pero las cifras finales se tomaron de los CSV y logs. Se corrigieron diferencias de tiempo y atribuciones entre series: 1.053217 s para trapecio grande Wi-Fi actual, 906.351 s en la serie original con 8 procesos, y 1112 MB en la serie posterior con 16 procesos. Los MB actuales de 96 procesos quedan sin dato observado.
+El contexto actualizado del proyecto orientó la revisión, pero las cifras finales se tomaron de los CSV y logs. Se corrigieron diferencias de tiempo y atribuciones entre series: 1.053217 s para trapecio grande Wi-Fi de la primera batería, 906.351 s en la serie original con 8 procesos, y 1112 MB en la serie posterior con 16 procesos. La primera batería no midió MB; la segunda midió TX+RX del servidor, que no equivale al TX agregado histórico.
 
 \begin{thebibliography}{9}
 \raggedright

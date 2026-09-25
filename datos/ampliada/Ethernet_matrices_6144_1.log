@@ -1,0 +1,4 @@
+COMANDO: mpirun -H 10.7.50.202:1 -np 1 --map-by slot --rank-by slot --bind-to core --report-bindings --mca plm_rsh_agent ssh\ -F\ /home/alumno16/experimentos_96/ssh_config --mca btl self\,vader\,tcp --mca btl_tcp_if_include 10.7.50.0/24 --mca oob_tcp_if_include 10.7.50.0/24 /var/tmp/mpi_bloques/mpi_matrix_2d 6144 1d tiled 64 
+RESULT_2D: N=6144, Procs=1, Algo=1d, Kernel=tiled, BS=64, T_Dist=0.120621, T_Summa=0.000000, T_Calc=32.647184, T_CalcAvg=32.647184, T_Gather=0.120034, T_Total=32.887841, GFLOPS=14.1042, Checksum=88332041.42, WSum=3.798985e+12
+
+[servidor:154105] MCW rank 0 bound to socket 0[core 0[hwt 0]]: [B/././././././././././././././././././././././.]

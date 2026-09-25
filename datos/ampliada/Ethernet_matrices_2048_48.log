@@ -1,0 +1,103 @@
+COMANDO: mpirun -H 10.7.50.202:24\,10.7.50.203:24 -np 48 --map-by slot --rank-by slot --bind-to core --report-bindings --mca plm_rsh_agent ssh\ -F\ /home/alumno16/experimentos_96/ssh_config --mca btl self\,vader\,tcp --mca btl_tcp_if_include 10.7.50.0/24 --mca oob_tcp_if_include 10.7.50.0/24 /var/tmp/mpi_bloques/mpi_matrix_2d 2048 1d tiled 64 
+RESULT_2D: N=2048, Procs=48, Algo=1d, Kernel=tiled, BS=64, T_Dist=1.057031, T_Summa=0.000000, T_Calc=0.050448, T_CalcAvg=0.041773, T_Gather=0.806665, T_Total=1.261592, GFLOPS=13.6176, Checksum=9814670.59, WSum=1.407031e+11
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+[servidor:152588] MCW rank 14 bound to socket 0[core 14[hwt 0]]: [././././././././././././././B/././././././././.]
+[servidor:152588] MCW rank 15 bound to socket 0[core 15[hwt 0]]: [./././././././././././././././B/./././././././.]
+[servidor:152588] MCW rank 16 bound to socket 0[core 16[hwt 0]]: [././././././././././././././././B/././././././.]
+[servidor:152588] MCW rank 17 bound to socket 0[core 17[hwt 0]]: [./././././././././././././././././B/./././././.]
+[servidor:152588] MCW rank 18 bound to socket 0[core 18[hwt 0]]: [././././././././././././././././././B/././././.]
+[servidor:152588] MCW rank 19 bound to socket 0[core 19[hwt 0]]: [./././././././././././././././././././B/./././.]
+[servidor:152588] MCW rank 20 bound to socket 0[core 20[hwt 0]]: [././././././././././././././././././././B/././.]
+[servidor:152588] MCW rank 21 bound to socket 0[core 21[hwt 0]]: [./././././././././././././././././././././B/./.]
+[servidor:152588] MCW rank 22 bound to socket 0[core 22[hwt 0]]: [././././././././././././././././././././././B/.]
+[servidor:152588] MCW rank 23 bound to socket 0[core 23[hwt 0]]: [./././././././././././././././././././././././B]
+[servidor:152588] MCW rank 0 bound to socket 0[core 0[hwt 0]]: [B/././././././././././././././././././././././.]
+[servidor:152588] MCW rank 1 bound to socket 0[core 1[hwt 0]]: [./B/./././././././././././././././././././././.]
+[servidor:152588] MCW rank 2 bound to socket 0[core 2[hwt 0]]: [././B/././././././././././././././././././././.]
+[servidor:152588] MCW rank 3 bound to socket 0[core 3[hwt 0]]: [./././B/./././././././././././././././././././.]
+[servidor:152588] MCW rank 4 bound to socket 0[core 4[hwt 0]]: [././././B/././././././././././././././././././.]
+[servidor:152588] MCW rank 5 bound to socket 0[core 5[hwt 0]]: [./././././B/./././././././././././././././././.]
+[servidor:152588] MCW rank 6 bound to socket 0[core 6[hwt 0]]: [././././././B/././././././././././././././././.]
+[servidor:152588] MCW rank 7 bound to socket 0[core 7[hwt 0]]: [./././././././B/./././././././././././././././.]
+[servidor:152588] MCW rank 8 bound to socket 0[core 8[hwt 0]]: [././././././././B/././././././././././././././.]
+[servidor:152588] MCW rank 9 bound to socket 0[core 9[hwt 0]]: [./././././././././B/./././././././././././././.]
+[servidor:152588] MCW rank 10 bound to socket 0[core 10[hwt 0]]: [././././././././././B/././././././././././././.]
+[servidor:152588] MCW rank 11 bound to socket 0[core 11[hwt 0]]: [./././././././././././B/./././././././././././.]
+[servidor:152588] MCW rank 12 bound to socket 0[core 12[hwt 0]]: [././././././././././././B/././././././././././.]
+[servidor:152588] MCW rank 13 bound to socket 0[core 13[hwt 0]]: [./././././././././././././B/./././././././././.]
+[workers1:16243] MCW rank 44 bound to socket 0[core 20[hwt 0]]: [././././././././././././././././././././B/././.]
+[workers1:16243] MCW rank 45 bound to socket 0[core 21[hwt 0]]: [./././././././././././././././././././././B/./.]
+[workers1:16243] MCW rank 46 bound to socket 0[core 22[hwt 0]]: [././././././././././././././././././././././B/.]
+[workers1:16243] MCW rank 47 bound to socket 0[core 23[hwt 0]]: [./././././././././././././././././././././././B]
+[workers1:16243] MCW rank 24 bound to socket 0[core 0[hwt 0]]: [B/././././././././././././././././././././././.]
+[workers1:16243] MCW rank 25 bound to socket 0[core 1[hwt 0]]: [./B/./././././././././././././././././././././.]
+[workers1:16243] MCW rank 26 bound to socket 0[core 2[hwt 0]]: [././B/././././././././././././././././././././.]
+[workers1:16243] MCW rank 27 bound to socket 0[core 3[hwt 0]]: [./././B/./././././././././././././././././././.]
+[workers1:16243] MCW rank 28 bound to socket 0[core 4[hwt 0]]: [././././B/././././././././././././././././././.]
+[workers1:16243] MCW rank 29 bound to socket 0[core 5[hwt 0]]: [./././././B/./././././././././././././././././.]
+[workers1:16243] MCW rank 30 bound to socket 0[core 6[hwt 0]]: [././././././B/././././././././././././././././.]
+[workers1:16243] MCW rank 31 bound to socket 0[core 7[hwt 0]]: [./././././././B/./././././././././././././././.]
+[workers1:16243] MCW rank 32 bound to socket 0[core 8[hwt 0]]: [././././././././B/././././././././././././././.]
+[workers1:16243] MCW rank 33 bound to socket 0[core 9[hwt 0]]: [./././././././././B/./././././././././././././.]
+[workers1:16243] MCW rank 34 bound to socket 0[core 10[hwt 0]]: [././././././././././B/././././././././././././.]
+[workers1:16243] MCW rank 35 bound to socket 0[core 11[hwt 0]]: [./././././././././././B/./././././././././././.]
+[workers1:16243] MCW rank 36 bound to socket 0[core 12[hwt 0]]: [././././././././././././B/././././././././././.]
+[workers1:16243] MCW rank 37 bound to socket 0[core 13[hwt 0]]: [./././././././././././././B/./././././././././.]
+[workers1:16243] MCW rank 38 bound to socket 0[core 14[hwt 0]]: [././././././././././././././B/././././././././.]
+[workers1:16243] MCW rank 39 bound to socket 0[core 15[hwt 0]]: [./././././././././././././././B/./././././././.]
+[workers1:16243] MCW rank 40 bound to socket 0[core 16[hwt 0]]: [././././././././././././././././B/././././././.]
+[workers1:16243] MCW rank 41 bound to socket 0[core 17[hwt 0]]: [./././././././././././././././././B/./././././.]
+[workers1:16243] MCW rank 42 bound to socket 0[core 18[hwt 0]]: [././././././././././././././././././B/././././.]
+[workers1:16243] MCW rank 43 bound to socket 0[core 19[hwt 0]]: [./././././././././././././././././././B/./././.]
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+

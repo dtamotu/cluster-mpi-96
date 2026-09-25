@@ -1,0 +1,412 @@
+[
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_1024_1.log",
+    "copia": "datos/ampliada/Ethernet_matrices_1024_1.log",
+    "sha256": "3397b698523ff485174e97e522b8f4bb4a7e3175e72fd0ba9cac707ad2eea334"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_1024_24.log",
+    "copia": "datos/ampliada/Ethernet_matrices_1024_24.log",
+    "sha256": "197977b417eddfa32cb9d7b1dbb63b9cf6998dad88ca91148405a72a70271240"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_1024_48.log",
+    "copia": "datos/ampliada/Ethernet_matrices_1024_48.log",
+    "sha256": "f04de7c9c7839467edac355d3140d04f4d98ca2e892f6c12ba67323dd6ca231a"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_1024_72.log",
+    "copia": "datos/ampliada/Ethernet_matrices_1024_72.log",
+    "sha256": "a44a5a6296c98207791cc0ae6de4598a31e72a16daefa792ba5a86a3afd5614b"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_1024_96.log",
+    "copia": "datos/ampliada/Ethernet_matrices_1024_96.log",
+    "sha256": "937fb3ca04d2a515c37fa533a41832140d76a4aaf63f743cd053b60ceabe496c"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_2048_1.log",
+    "copia": "datos/ampliada/Ethernet_matrices_2048_1.log",
+    "sha256": "d1235ad1b6639b8ae9eb0fe3b74c7a1cfa16cf97f6deeed4802b989f62bbd566"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_2048_24.log",
+    "copia": "datos/ampliada/Ethernet_matrices_2048_24.log",
+    "sha256": "8ffbd2f63da069232a954726cfbcc919dca3e6c1114326ba58c88bb98fb4ed1e"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_2048_48.log",
+    "copia": "datos/ampliada/Ethernet_matrices_2048_48.log",
+    "sha256": "516b2e3f67de8ad3d3c1810df22b4cd47a694609f1e4c0f52983b4af59dd96c9"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_2048_72.log",
+    "copia": "datos/ampliada/Ethernet_matrices_2048_72.log",
+    "sha256": "3bba1315f14b032cdd107e022e7c4ce1d5aaabbba08e2e824c09f3d7ccae34e1"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_2048_96.log",
+    "copia": "datos/ampliada/Ethernet_matrices_2048_96.log",
+    "sha256": "e1f74d3fd82a8fb484a3bdd81a63f46df7d7e728a33b546c0f87c3518d406332"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_3072_1.log",
+    "copia": "datos/ampliada/Ethernet_matrices_3072_1.log",
+    "sha256": "f8db102979414552fb56fc8860efc9f43926a5ef076c1052e3ac5eba0917d5aa"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_3072_24.log",
+    "copia": "datos/ampliada/Ethernet_matrices_3072_24.log",
+    "sha256": "9bba0c62b3f288ee2a38cb88056549fb069f48b645c659b09c296b436cc9c9bd"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_3072_48.log",
+    "copia": "datos/ampliada/Ethernet_matrices_3072_48.log",
+    "sha256": "4726b673e036a02a1942bf314c4638ec9097aab4bc5218e10fdff98d88e487f8"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_3072_72.log",
+    "copia": "datos/ampliada/Ethernet_matrices_3072_72.log",
+    "sha256": "a58ee5133aa896c79cfe5b51318bf9a76b0b43e179030917c2ac184bdbd451cd"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_3072_96.log",
+    "copia": "datos/ampliada/Ethernet_matrices_3072_96.log",
+    "sha256": "1e82b2c1475bf8a668e117089a35bd296fffdb81ae4987ca835fde9a6b6e9eaa"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_4096_1.log",
+    "copia": "datos/ampliada/Ethernet_matrices_4096_1.log",
+    "sha256": "a23cb16c8d7ccfca073e9b39dca3d746635a27517c0e8174f50173c876b3d251"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_4096_24.log",
+    "copia": "datos/ampliada/Ethernet_matrices_4096_24.log",
+    "sha256": "c53df8f254fbda6874973995d7c678d499d800cef431f2cd6a86a0ec59dcd8f4"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_4096_48.log",
+    "copia": "datos/ampliada/Ethernet_matrices_4096_48.log",
+    "sha256": "bad7ead659329aff1305d0c179102dc80235cfd4c2a0b26f6d1708b69a9d3f34"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_4096_72.log",
+    "copia": "datos/ampliada/Ethernet_matrices_4096_72.log",
+    "sha256": "847204236f8db7d41bfda22b529d8ee01c2f0def9b17e20635af51b97d35a162"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_4096_96.log",
+    "copia": "datos/ampliada/Ethernet_matrices_4096_96.log",
+    "sha256": "06970256471839bdc1f588e156142bf15f111d48d04f275479ecd872e9e0e9aa"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_512_1.log",
+    "copia": "datos/ampliada/Ethernet_matrices_512_1.log",
+    "sha256": "6da40d5f0ecd6ac5cbd6fd50ade9efc0852d4ee7da292fe02012de9a530f3f66"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_512_24.log",
+    "copia": "datos/ampliada/Ethernet_matrices_512_24.log",
+    "sha256": "22a98bf94dfa4d9e77a3d67e2355d71d42ea231665cb4d9ef4f7f6f60dfafced"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_512_48.log",
+    "copia": "datos/ampliada/Ethernet_matrices_512_48.log",
+    "sha256": "7a1b3de97a85062bd6a0f66073eee47f4aafec0c37ded915a442fbe365961939"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_512_72.log",
+    "copia": "datos/ampliada/Ethernet_matrices_512_72.log",
+    "sha256": "f645dd094a8e236cad722524658f676c34d77a2ccfc7623e57684f1afbb98a96"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_512_96.log",
+    "copia": "datos/ampliada/Ethernet_matrices_512_96.log",
+    "sha256": "5bfa5681afc9d280d4cf3f8f713cc6f46ceff0f39393edf124a11d862083a638"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_6144_1.log",
+    "copia": "datos/ampliada/Ethernet_matrices_6144_1.log",
+    "sha256": "91e521a4817708a332503ea43189a0ca06834d8396b499ba567f749881693604"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_6144_24.log",
+    "copia": "datos/ampliada/Ethernet_matrices_6144_24.log",
+    "sha256": "15e00bf91fb8e9665ee73ffdc06f41e6def20982c063237a4bc10502d6846540"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_6144_48.log",
+    "copia": "datos/ampliada/Ethernet_matrices_6144_48.log",
+    "sha256": "88cb139e8e6f123b289fe1551b3204c4e3b1c91df4a2bd260666e537b8e821eb"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_6144_72.log",
+    "copia": "datos/ampliada/Ethernet_matrices_6144_72.log",
+    "sha256": "39f0facee0ac96cfbad94b048ad2d73e08a16fefdb543ce6fc3ab6c9c33e91a9"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_matrices_6144_96.log",
+    "copia": "datos/ampliada/Ethernet_matrices_6144_96.log",
+    "sha256": "17e6b3c63298e08974c6efa6ab0af71ccb55b06fbbc6fbeb801b23dc8d938c4f"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_trapecio_100000000000_1.log",
+    "copia": "datos/ampliada/Ethernet_trapecio_100000000000_1.log",
+    "sha256": "bc5922d8db20bfe9602065047c9fbc629f45b0fd9d670bea43f80cd2ed318aea"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_trapecio_100000000000_24.log",
+    "copia": "datos/ampliada/Ethernet_trapecio_100000000000_24.log",
+    "sha256": "ff92a77abfb7300944c7d1d9000622e1a23bb1bb60e8efe44853f120e201d467"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_trapecio_100000000000_48.log",
+    "copia": "datos/ampliada/Ethernet_trapecio_100000000000_48.log",
+    "sha256": "ed277047fe5e1cc742cabb72d984e99eecae6b36f6e5dc2c9323800df5737e12"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_trapecio_100000000000_72.log",
+    "copia": "datos/ampliada/Ethernet_trapecio_100000000000_72.log",
+    "sha256": "b101ee81a6b88a2b18bf05ee22278247c5ea5fb12cd36f438b4ac343755fb140"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_trapecio_100000000000_96.log",
+    "copia": "datos/ampliada/Ethernet_trapecio_100000000000_96.log",
+    "sha256": "99dfd7efc5e06af382687c389d08d1414ca98c6ac1a28708ee56df9f046c8b1f"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_trapecio_100000000_1.log",
+    "copia": "datos/ampliada/Ethernet_trapecio_100000000_1.log",
+    "sha256": "99c0609fa0235ecc271bf94ee4f629ae512007b6a9d90125c8caa78b46201ce8"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_trapecio_100000000_24.log",
+    "copia": "datos/ampliada/Ethernet_trapecio_100000000_24.log",
+    "sha256": "84bc03a129d26c130ccee68d85f00561692a64a6d9360a9d705ca990aadaba59"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_trapecio_100000000_48.log",
+    "copia": "datos/ampliada/Ethernet_trapecio_100000000_48.log",
+    "sha256": "bb04f416964aa6bdae3439f2732aecc3167dcbebee1e0502202b93ce7f156f70"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_trapecio_100000000_72.log",
+    "copia": "datos/ampliada/Ethernet_trapecio_100000000_72.log",
+    "sha256": "85db2925508a76bf9ecd0a6832c1b37b2b2ea10651826c4075187a89b8c2481b"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Ethernet_trapecio_100000000_96.log",
+    "copia": "datos/ampliada/Ethernet_trapecio_100000000_96.log",
+    "sha256": "ad872422b6559a515baea4cc5b7c0834242f01f57db164ca5bbe068874a4b49c"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_1024_1.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_1024_1.log",
+    "sha256": "8b24986604353fe2a797650ff20ad5ffd2672f932195e5868fec249916cc4751"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_1024_24.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_1024_24.log",
+    "sha256": "b81ca0dd170a54be94f193af7a46950e300696e0e71c4db88c3189d6c19b463f"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_1024_48.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_1024_48.log",
+    "sha256": "1d44168e63c20a5772932cf01f3194bfabc1e7f075f73a7ea898dc2fd033c00f"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_1024_72.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_1024_72.log",
+    "sha256": "46052a1e309db24b9ef3b85763b1d2ae7723e511deb6df76bb418def6ba27edd"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_1024_96.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_1024_96.log",
+    "sha256": "a7dc5d48cd118dc6a5be7724ebc5424670deb4b466eec3ec0dc9eeaae86acfad"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_2048_1.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_2048_1.log",
+    "sha256": "fb3a1fcdc03be3022e9292151fc129e5a9e2538132c2f7d5b61c728385a17437"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_2048_24.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_2048_24.log",
+    "sha256": "6fa9694f62ab81bdaf98619a092c6635f419b57eeeaace17fce84b6aa1c09119"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_2048_48.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_2048_48.log",
+    "sha256": "c827ae67a9f4d0077d420f842cb4cda85695c2f3e4a0e9cc1f9b8bc4a642efdb"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_2048_72.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_2048_72.log",
+    "sha256": "82b140c7d1d4a7aa90304430fb2ce2ed2f563b1268d4db17fadbbaf5c8771398"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_2048_96.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_2048_96.log",
+    "sha256": "8992c50cd13f998e17f43f8073599a6848b0d9f5ad3ed0345b67643e54400ec6"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_3072_1.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_3072_1.log",
+    "sha256": "9fd005a2f4fd7c7a68ec72fa4fe46da9c3d04294527202ad98df9cabdf06e99f"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_3072_24.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_3072_24.log",
+    "sha256": "783399d1035fd217a4d44656e878a34eb8badc6518cae58587f0a81e729b7425"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_3072_48.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_3072_48.log",
+    "sha256": "8cb6a4b4b384e6bbdd97a236292ee67c9de94b66fbd8035c3e8040169aaa090a"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_3072_72.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_3072_72.log",
+    "sha256": "22185975cb4ba84caea508882ac50a904b887dab695fb70dfe8664c89b966509"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_3072_96.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_3072_96.log",
+    "sha256": "97194ff649ca425ac357a8ac31666f104ec6a85b411a948d4084e01008ac11b6"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_4096_1.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_4096_1.log",
+    "sha256": "7c2fdf5c3989024d261a26618ab59e92a1295313e80558447074d510e03ae6f1"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_4096_24.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_4096_24.log",
+    "sha256": "87510a6ffdbb7b1dfdbf15b1e04ab919f99c04530677c359b5627bf02fff21d5"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_4096_48.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_4096_48.log",
+    "sha256": "bb2854496e1e300c03edc79547ee6c7c1603ccc7f1828322274214d2e47fa3b3"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_4096_72.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_4096_72.log",
+    "sha256": "b0dea5272de8860a0413906ec77c50d3189cc3dff58de7f1ff8daa3549cc5c5c"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_4096_96.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_4096_96.log",
+    "sha256": "0bd4e89289a0f91404efb7cf57bc041c0a8d1cbaac4e45f40a12dfd2cba79dc8"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_512_1.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_512_1.log",
+    "sha256": "4ca6ba18aae06f4de19c593b69c35e4dcc96b3e9f7ab3bdfb6bf8043472bf7b9"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_512_24.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_512_24.log",
+    "sha256": "0fd5a7c524b06c8ebaa8a2e8c2cb1b1b7aa91bf13d5cb607d955f21334ffd5f8"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_512_48.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_512_48.log",
+    "sha256": "58676d49b1b5ab7c416ef6fe86d9a6e19d272aca683223cc86009cd07f936a73"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_512_72.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_512_72.log",
+    "sha256": "03d67b2bc1f68e5d53303b065157c7bf055ed61fc22beaad5955292b293345b1"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_matrices_512_96.log",
+    "copia": "datos/ampliada/Wi-Fi_matrices_512_96.log",
+    "sha256": "6016e97d91699322c8cf588cdc8fc148db174bd9fff848dac2dc00cebcfffba6"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_trapecio_100000000000_1.log",
+    "copia": "datos/ampliada/Wi-Fi_trapecio_100000000000_1.log",
+    "sha256": "28e3635b5d2e81d29381b9806e7f5464bcfd6153b8792dcc708f6db6b1215ce7"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_trapecio_100000000000_24.log",
+    "copia": "datos/ampliada/Wi-Fi_trapecio_100000000000_24.log",
+    "sha256": "4a9e3fcbee61ca1bbdac216721d9247f8de7fb77174943eb91481bcf10e3aa0c"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_trapecio_100000000000_48.log",
+    "copia": "datos/ampliada/Wi-Fi_trapecio_100000000000_48.log",
+    "sha256": "451ba0d6e6c990ca504a781aed1f12f77b3967fca9817716df8e4d034e015b30"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_trapecio_100000000000_72.log",
+    "copia": "datos/ampliada/Wi-Fi_trapecio_100000000000_72.log",
+    "sha256": "102954e64daa2e7e97b868f24c232a7603a02252beb58cc82df883039c2b4b61"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_trapecio_100000000000_96.log",
+    "copia": "datos/ampliada/Wi-Fi_trapecio_100000000000_96.log",
+    "sha256": "c46d1f7d5fd0d28fc4284d79e97980da55d0bd199e511a72c9b4c6bad894fb95"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_trapecio_100000000_1.log",
+    "copia": "datos/ampliada/Wi-Fi_trapecio_100000000_1.log",
+    "sha256": "c2277c2a39e70086b909ad4e41847ddc21c430d055562221dc059882332e4a90"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_trapecio_100000000_24.log",
+    "copia": "datos/ampliada/Wi-Fi_trapecio_100000000_24.log",
+    "sha256": "700af4007df110bdc0310a9e67778e9f1aca7a756c653c86bbf39dcca0afdd63"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_trapecio_100000000_48.log",
+    "copia": "datos/ampliada/Wi-Fi_trapecio_100000000_48.log",
+    "sha256": "8942ac0d7337028bee9eef9df2d863715591d4b709574c2e11038b75bb110600"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_trapecio_100000000_72.log",
+    "copia": "datos/ampliada/Wi-Fi_trapecio_100000000_72.log",
+    "sha256": "546970d0f2a27237c9c363fcc8fdabff7a45a48d5a45e42f3e0ae37d36a3d6e6"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/Wi-Fi_trapecio_100000000_96.log",
+    "copia": "datos/ampliada/Wi-Fi_trapecio_100000000_96.log",
+    "sha256": "f2f5237796bc0433881aa91abfe2fdd896c384b6dd2d2708d151aa39e2e95936"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/metadata_y_resultados.json",
+    "copia": "datos/ampliada/metadata_y_resultados.json",
+    "sha256": "f2629ef28b72698d6634195c1acd93ed64418a633fe9ebed6a8bbd188e10236b"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/resultados_consolidados.csv",
+    "copia": "datos/ampliada/resultados_consolidados.csv",
+    "sha256": "0b7c54cd30dd0b0d54461a5b9ebdafad276fcddcaac1a170bf4bd3a35409f285"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/tiempos_eth.csv",
+    "copia": "datos/ampliada/tiempos_eth.csv",
+    "sha256": "54be3b929edcf0e169a9ca58b73d441af43af122450dfc4a10b2536cf79819a5"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/bateria_expandida/20260925_003457/tiempos_wifi.csv",
+    "copia": "datos/ampliada/tiempos_wifi.csv",
+    "sha256": "1254b6d9da72920f65ea0c90bc9b28d8f86598b2afeaace04d4def28f4b69f47"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/INFORME_ANALISIS_EXPANDIDO_96.md",
+    "copia": "fuentes/INFORME_ANALISIS_EXPANDIDO_96.md",
+    "sha256": "83f94324587684273db6e284026dcbd978d6bcfd341decaa9921de1112636c2e"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/src/trapecio_asimetrico.c",
+    "copia": "fuentes/exploratorios/trapecio_asimetrico.c",
+    "sha256": "43e329637a0837660a5e10254f3a27cb2e31c5d6df03a67954d0eb4d45cb4eac"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/investigacion_avanzada/benchmark_p_vs_e.c",
+    "copia": "fuentes/exploratorios/benchmark_p_vs_e.c",
+    "sha256": "8b3ddab8cb2cb22e59091905f13fa787fbbcc25af1af477ce2460bc7568b7ed8"
+  }
+]
