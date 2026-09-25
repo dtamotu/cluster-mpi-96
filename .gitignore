@@ -1,0 +1,14 @@
+# Archivos temporales de LaTeX y reconstrucción
+/main.aux
+/main.log
+/main.out
+/main.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+tmp/
+__pycache__/
+
+# Archivos locales del editor y del sistema
+.DS_Store
+.vscode/

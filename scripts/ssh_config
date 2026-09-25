@@ -1,0 +1,18 @@
+# Usuarios de los workers, conectados directamente por Ethernet.
+# Se comprueba la clave SSH ya conocida de cada equipo por su IP Wi-Fi.
+Host 10.7.50.203
+    User alumno22
+    HostKeyAlias 10.7.134.58
+
+Host 10.7.50.201
+    User alumno21
+    HostKeyAlias 10.7.134.59
+
+Host 10.7.50.204
+    User alumno6
+    HostKeyAlias 10.7.134.51
+
+Host *
+    BatchMode yes
+    ConnectTimeout 8
+    StrictHostKeyChecking yes

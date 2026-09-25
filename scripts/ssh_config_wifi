@@ -1,0 +1,17 @@
+# Configuración SSH para workers por interfaz Wi-Fi (10.7.134.0/23)
+Host 10.7.134.58 workers1
+    HostName 10.7.134.58
+    User alumno22
+
+Host 10.7.134.59 workers2
+    HostName 10.7.134.59
+    User alumno21
+
+Host 10.7.134.51 workers4
+    HostName 10.7.134.51
+    User alumno6
+
+Host *
+    BatchMode yes
+    ConnectTimeout 10
+    StrictHostKeyChecking no
