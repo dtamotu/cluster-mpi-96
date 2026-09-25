@@ -1,0 +1,393 @@
+{
+  "2048": {
+    "cluster_4p": {
+      "procs": 4,
+      "label": "Cl\u00faster 4 Nodos (1 proc/nodo)",
+      "type": "cluster",
+      "reps": [
+        {
+          "rep": 1,
+          "inicio": "2026-09-24T00:37:57",
+          "ping_ms": {
+            "workers1": 66.009,
+            "workers2": 54.62,
+            "workers4": 56.089
+          },
+          "scatter": 4.491119,
+          "bcast": 19.328091,
+          "calc": 0.627426,
+          "gather": 14.86714,
+          "total": 25.357034,
+          "gflops": 0.6775,
+          "checksum": 9814670.59,
+          "ok": true,
+          "duracion_pared": 26.9
+        },
+        {
+          "rep": 2,
+          "inicio": "2026-09-24T01:18:27",
+          "ping_ms": {
+            "workers1": 31.577,
+            "workers2": 51.85,
+            "workers4": 54.854
+          },
+          "scatter": 4.430175,
+          "bcast": 18.815019,
+          "calc": 0.575443,
+          "gather": 14.850281,
+          "total": 25.166945,
+          "gflops": 0.6826,
+          "checksum": 9814670.59,
+          "ok": true,
+          "duracion_pared": 26.5
+        }
+      ],
+      "resumen": {
+        "n_ok": 2,
+        "avg_total": 25.2619895,
+        "avg_scatter": 4.460647,
+        "avg_bcast": 19.071555,
+        "avg_calc": 0.6014345000000001,
+        "avg_gather": 14.8587105,
+        "avg_comm": 38.3909125,
+        "avg_gflops": 0.68005,
+        "min_total": 25.166945,
+        "max_total": 25.357034
+      }
+    },
+    "cluster_8p": {
+      "procs": 8,
+      "label": "Cl\u00faster 4 Nodos (2 procs/nodo)",
+      "type": "cluster",
+      "reps": [
+        {
+          "rep": 1,
+          "inicio": "2026-09-24T00:40:56",
+          "ping_ms": {
+            "workers1": 57.918,
+            "workers2": 51.777,
+            "workers4": 54.547
+          },
+          "scatter": 5.074579,
+          "bcast": 430.88106,
+          "calc": 0.412649,
+          "gather": 425.027623,
+          "total": 438.010476,
+          "gflops": 0.0392,
+          "checksum": 9814670.59,
+          "ok": true,
+          "duracion_pared": 439.6
+        },
+        {
+          "rep": 2,
+          "inicio": "2026-09-24T01:20:14",
+          "ping_ms": {
+            "workers1": 32.048,
+            "workers2": 52.032,
+            "workers4": 52.998
+          },
+          "scatter": 4.489065,
+          "bcast": 122.327208,
+          "calc": 0.4411,
+          "gather": 120.252555,
+          "total": 129.59899,
+          "gflops": 0.1326,
+          "checksum": 9814670.59,
+          "ok": true,
+          "duracion_pared": 131.0
+        }
+      ],
+      "resumen": {
+        "n_ok": 2,
+        "avg_total": 283.804733,
+        "avg_scatter": 4.781822,
+        "avg_bcast": 276.604134,
+        "avg_calc": 0.4268745,
+        "avg_gather": 272.640089,
+        "avg_comm": 554.026045,
+        "avg_gflops": 0.0859,
+        "min_total": 129.59899,
+        "max_total": 438.010476
+      }
+    },
+    "cluster_16p": {
+      "procs": 16,
+      "label": "Cl\u00faster 4 Nodos (4 procs/nodo)",
+      "type": "cluster",
+      "reps": [
+        {
+          "rep": 1,
+          "inicio": "2026-09-24T00:48:21",
+          "ping_ms": {
+            "workers1": 60.893,
+            "workers2": 55.527,
+            "workers4": 91.418
+          },
+          "scatter": 4.475162,
+          "bcast": 271.140546,
+          "calc": 0.225127,
+          "gather": 245.278354,
+          "total": 278.234468,
+          "gflops": 0.0617,
+          "checksum": 9814670.59,
+          "ok": true,
+          "duracion_pared": 279.8
+        },
+        {
+          "rep": 2,
+          "inicio": "2026-09-24T01:22:32",
+          "ping_ms": {
+            "workers1": 32.518,
+            "workers2": 55.388,
+            "workers4": 52.545
+          },
+          "scatter": 4.99341,
+          "bcast": 135.081153,
+          "calc": 0.251456,
+          "gather": 92.404218,
+          "total": 139.697011,
+          "gflops": 0.123,
+          "checksum": 9814670.59,
+          "ok": true,
+          "duracion_pared": 141.1
+        }
+      ],
+      "resumen": {
+        "n_ok": 2,
+        "avg_total": 208.96573949999998,
+        "avg_scatter": 4.734286,
+        "avg_bcast": 203.11084949999997,
+        "avg_calc": 0.2382915,
+        "avg_gather": 168.841286,
+        "avg_comm": 376.68642149999994,
+        "avg_gflops": 0.09235,
+        "min_total": 139.697011,
+        "max_total": 278.234468
+      }
+    }
+  },
+  "1536": {
+    "cluster_16p": {
+      "procs": 16,
+      "label": "Cl\u00faster 4 Nodos (4 procs/nodo)",
+      "type": "cluster",
+      "reps": [
+        {
+          "rep": 1,
+          "inicio": "2026-09-24T00:38:30",
+          "ping_ms": {
+            "workers1": 41.014,
+            "workers2": 54.775,
+            "workers4": 54.434
+          },
+          "scatter": 2.839505,
+          "bcast": 134.157076,
+          "calc": 0.0923,
+          "gather": 114.765634,
+          "total": 138.35008,
+          "gflops": 0.0524,
+          "checksum": 5520752.01,
+          "ok": true,
+          "duracion_pared": 139.9
+        },
+        {
+          "rep": 2,
+          "inicio": "2026-09-24T01:19:00",
+          "ping_ms": {
+            "workers1": 53.414,
+            "workers2": 87.822,
+            "workers4": 85.287
+          },
+          "scatter": 2.399408,
+          "bcast": 62.893413,
+          "calc": 0.059593,
+          "gather": 40.027418,
+          "total": 66.68247,
+          "gflops": 0.1087,
+          "checksum": 5520752.01,
+          "ok": true,
+          "duracion_pared": 68.2
+        }
+      ],
+      "resumen": {
+        "n_ok": 2,
+        "avg_total": 102.516275,
+        "avg_scatter": 2.6194565,
+        "avg_bcast": 98.5252445,
+        "avg_calc": 0.0759465,
+        "avg_gather": 77.396526,
+        "avg_comm": 178.541227,
+        "avg_gflops": 0.08055000000000001,
+        "min_total": 66.68247,
+        "max_total": 138.35008
+      }
+    }
+  },
+  "3072": {
+    "cluster_4p": {
+      "procs": 4,
+      "label": "Cl\u00faster 4 Nodos (1 proc/nodo)",
+      "type": "cluster",
+      "reps": [
+        {
+          "rep": 1,
+          "inicio": "2026-09-24T00:53:08",
+          "ping_ms": {
+            "workers1": 51.674,
+            "workers2": 53.977,
+            "workers4": 56.491
+          },
+          "scatter": 52.165891,
+          "bcast": 276.244387,
+          "calc": 2.644783,
+          "gather": 58.736449,
+          "total": 290.103846,
+          "gflops": 0.1999,
+          "checksum": 22083010.24,
+          "ok": true,
+          "duracion_pared": 291.5
+        },
+        {
+          "rep": 2,
+          "inicio": "2026-09-24T01:24:59",
+          "ping_ms": {
+            "workers1": 38.845,
+            "workers2": 55.0,
+            "workers4": 55.176
+          },
+          "scatter": 23.524422,
+          "bcast": 87.828015,
+          "calc": 2.447676,
+          "gather": 41.765822,
+          "total": 101.805282,
+          "gflops": 0.5695,
+          "checksum": 22083010.24,
+          "ok": true,
+          "duracion_pared": 103.2
+        }
+      ],
+      "resumen": {
+        "n_ok": 2,
+        "avg_total": 195.954564,
+        "avg_scatter": 37.8451565,
+        "avg_bcast": 182.036201,
+        "avg_calc": 2.5462295,
+        "avg_gather": 50.251135500000004,
+        "avg_comm": 270.132493,
+        "avg_gflops": 0.3847,
+        "min_total": 101.805282,
+        "max_total": 290.103846
+      }
+    },
+    "cluster_8p": {
+      "procs": 8,
+      "label": "Cl\u00faster 4 Nodos (2 procs/nodo)",
+      "type": "cluster",
+      "reps": [
+        {
+          "rep": 1,
+          "inicio": "2026-09-24T00:58:05",
+          "ping_ms": {
+            "workers1": 33.398,
+            "workers2": 88.409,
+            "workers4": 50.37
+          },
+          "scatter": 8.76011,
+          "bcast": 889.744162,
+          "calc": 1.735076,
+          "gather": 885.556909,
+          "total": 906.351077,
+          "gflops": 0.064,
+          "checksum": 22083010.24,
+          "ok": true,
+          "duracion_pared": 907.7
+        },
+        {
+          "rep": 2,
+          "inicio": "2026-09-24T01:26:48",
+          "ping_ms": {
+            "workers1": 84.386,
+            "workers2": 53.765,
+            "workers4": 54.488
+          },
+          "scatter": 10.312842,
+          "bcast": 306.768629,
+          "calc": 1.737366,
+          "gather": 301.273099,
+          "total": 322.513457,
+          "gflops": 0.1798,
+          "checksum": 22083010.24,
+          "ok": true,
+          "duracion_pared": 323.9
+        }
+      ],
+      "resumen": {
+        "n_ok": 2,
+        "avg_total": 614.432267,
+        "avg_scatter": 9.536476,
+        "avg_bcast": 598.2563954999999,
+        "avg_calc": 1.736221,
+        "avg_gather": 593.415004,
+        "avg_comm": 1201.2078754999998,
+        "avg_gflops": 0.1219,
+        "min_total": 322.513457,
+        "max_total": 906.351077
+      }
+    },
+    "cluster_16p": {
+      "procs": 16,
+      "label": "Cl\u00faster 4 Nodos (4 procs/nodo)",
+      "type": "cluster",
+      "reps": [
+        {
+          "rep": 1,
+          "inicio": "2026-09-24T01:13:19",
+          "ping_ms": {
+            "workers1": 50.169,
+            "workers2": 55.541,
+            "workers4": 20.478
+          },
+          "scatter": 9.323369,
+          "bcast": 289.158924,
+          "calc": 0.786465,
+          "gather": 179.843285,
+          "total": 300.886058,
+          "gflops": 0.1927,
+          "checksum": 22083010.24,
+          "ok": true,
+          "duracion_pared": 302.3
+        },
+        {
+          "rep": 2,
+          "inicio": "2026-09-24T01:32:18",
+          "ping_ms": {
+            "workers1": 23.226,
+            "workers2": 55.878,
+            "workers4": 54.709
+          },
+          "scatter": 8.851753,
+          "bcast": 294.318206,
+          "calc": 0.963699,
+          "gather": 169.242598,
+          "total": 308.339685,
+          "gflops": 0.188,
+          "checksum": 22083010.24,
+          "ok": true,
+          "duracion_pared": 309.8
+        }
+      ],
+      "resumen": {
+        "n_ok": 2,
+        "avg_total": 304.6128715,
+        "avg_scatter": 9.087561,
+        "avg_bcast": 291.738565,
+        "avg_calc": 0.8750819999999999,
+        "avg_gather": 174.54294149999998,
+        "avg_comm": 475.36906749999997,
+        "avg_gflops": 0.19035000000000002,
+        "min_total": 300.886058,
+        "max_total": 308.339685
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "logs_coinciden_con_csv": 50,
+  "matrices_checksums_consistentes": 30,
+  "trapecio_error_absoluto_maximo": 1.614e-10,
+  "nota": "Consistencia a la precisi\u00f3n impresa; no equivale a validaci\u00f3n elemento a elemento."
+}

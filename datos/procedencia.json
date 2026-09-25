@@ -1,0 +1,352 @@
+[
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/matrices_3072_96.log",
+    "copia": "datos/ethernet/matrices_3072_96.log",
+    "sha256": "203c9c6b6d5e38d3254c53232d5dcd4126ef7a2197b4a337fa474f26c2d3adf3"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/matrices_1024_24.log",
+    "copia": "datos/ethernet/matrices_1024_24.log",
+    "sha256": "2651a1d128195ee4964ff4aadb9828c002ca6e822aca871a5c4f35d9a0811bdb"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/matrices_2048_72.log",
+    "copia": "datos/ethernet/matrices_2048_72.log",
+    "sha256": "e8d8bae561473b8d3657c8c052ed4d4e5592eb223e5154632bf2370c888b1c3c"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/trapecio_100000000_1.log",
+    "copia": "datos/ethernet/trapecio_100000000_1.log",
+    "sha256": "da29aa030bbf10901211eb8d7bfa86c3c5a094cfbeb38ef3af8ea6f2f2989b1b"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/matrices_3072_24.log",
+    "copia": "datos/ethernet/matrices_3072_24.log",
+    "sha256": "1ee744b85ce5386c9409c6a7754eec6fa1bbccacb9779c01becbbb30cf712f13"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/trapecio_100000000_96.log",
+    "copia": "datos/ethernet/trapecio_100000000_96.log",
+    "sha256": "caf833044d9ac15416790290e68a8aa6f42cff1e5000dc01e226f295f51ddede"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/trapecio_100000000_24.log",
+    "copia": "datos/ethernet/trapecio_100000000_24.log",
+    "sha256": "dbb9750cf3dbb3f61623697b5311cbb742043504d307e949f79b95b020ce2b1b"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/matrices_2048_96.log",
+    "copia": "datos/ethernet/matrices_2048_96.log",
+    "sha256": "3a87a816516a95cc9a9ce7c7840d30e6e8b903641565baf6c12a653ed0ae3975"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/tiempos.csv",
+    "copia": "datos/ethernet/tiempos.csv",
+    "sha256": "715bed4d8d870e7740e8af69331b474706613353b3ad00240fdd75a86a5e5bd8"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/matrices_1024_1.log",
+    "copia": "datos/ethernet/matrices_1024_1.log",
+    "sha256": "444fef380dbf20427bad576b92e3562ac61cd799d851119d51090dd1926f6a94"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/matrices_1024_96.log",
+    "copia": "datos/ethernet/matrices_1024_96.log",
+    "sha256": "0fbba21c0f2da098142323d4ef73d16ea13951a919a3eebfef97ca9f564c430a"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/trapecio_100000000_48.log",
+    "copia": "datos/ethernet/trapecio_100000000_48.log",
+    "sha256": "37f569ecb80c7d0bf19ebfd2547432e86e9c0434f1247764b977c44304436324"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/trapecio_100000000000_24.log",
+    "copia": "datos/ethernet/trapecio_100000000000_24.log",
+    "sha256": "981e6eefe236ec3edb9e7b450964b992cae87637301461ed7b4a0fc69f0350f7"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/matrices_2048_48.log",
+    "copia": "datos/ethernet/matrices_2048_48.log",
+    "sha256": "b3c5477644d2be04c70bb9d2d2c2410ab192c39729ef1badc4c9c6364d213075"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/matrices_2048_24.log",
+    "copia": "datos/ethernet/matrices_2048_24.log",
+    "sha256": "c127fec101f6ef8be388ee3d493b7c4575030792e483ea010291ef0e98690f91"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/matrices_3072_48.log",
+    "copia": "datos/ethernet/matrices_3072_48.log",
+    "sha256": "edd421fa58171df612227619c8757242ee5c9534f3d144d4f2a4d61aaee58963"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/trapecio_100000000000_48.log",
+    "copia": "datos/ethernet/trapecio_100000000000_48.log",
+    "sha256": "25bdde6dadd300cf9f0153e91619c8e42b52f1dbcec22bbcb00726698fc53fce"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/matrices_2048_1.log",
+    "copia": "datos/ethernet/matrices_2048_1.log",
+    "sha256": "f10477ac0e694a8b4664ef7e33a198830924b92fe32e30290b5c2d0e8a3e6034"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/matrices_3072_72.log",
+    "copia": "datos/ethernet/matrices_3072_72.log",
+    "sha256": "ac0b83af90854825e79f5a1c02e8dade66268a1276e4386a13099f48e13d45e3"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/trapecio_100000000000_96.log",
+    "copia": "datos/ethernet/trapecio_100000000000_96.log",
+    "sha256": "8d13d42f099a34d26369bacc981f4fc8161d6adbbeff45498dd470458fec0edb"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/trapecio_100000000000_1.log",
+    "copia": "datos/ethernet/trapecio_100000000000_1.log",
+    "sha256": "90b17bae4a435a4d7b647843523255fa40d9c18b7649265bea86c3b461fc7576"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/matrices_1024_48.log",
+    "copia": "datos/ethernet/matrices_1024_48.log",
+    "sha256": "88059032b4f494b419ec284f1644c646dcf0297a3ecfc16681247765df331f51"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/matrices_3072_1.log",
+    "copia": "datos/ethernet/matrices_3072_1.log",
+    "sha256": "0d8f61222129ea83dde17ea431e91df1af98d733e84b89528a0964e0cf363ddc"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/trapecio_100000000000_72.log",
+    "copia": "datos/ethernet/trapecio_100000000000_72.log",
+    "sha256": "8f3e8d1afe6209c18fb697b22c21d0bcdfdec3aef86196bf58e291c35df98cc3"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/trapecio_100000000_72.log",
+    "copia": "datos/ethernet/trapecio_100000000_72.log",
+    "sha256": "e6de52f110741dca5bc9265f09f7abd4677db6781542071c4a64110d884dd2eb"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados/20260924_202548_RnIhhM/matrices_1024_72.log",
+    "copia": "datos/ethernet/matrices_1024_72.log",
+    "sha256": "6c28dddff1a16cc972b38d429efafd395acc59766c59668e7246d538aaca0d69"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/matrices_3072_96.log",
+    "copia": "datos/wifi/matrices_3072_96.log",
+    "sha256": "a398e7682fef8683a602a4c65073f22d0194fe002b505aa378e0cbd936f907eb"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/matrices_1024_24.log",
+    "copia": "datos/wifi/matrices_1024_24.log",
+    "sha256": "8008e72fc9b93c4de8f1ab23455d4b228ef02b10f2ec4da98950edc82685fa1c"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/matrices_2048_72.log",
+    "copia": "datos/wifi/matrices_2048_72.log",
+    "sha256": "f11e0250535467c5c38fd76fb8d2f86d572d6261dcdfe746da31a5ae156395b3"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/trapecio_100000000_1.log",
+    "copia": "datos/wifi/trapecio_100000000_1.log",
+    "sha256": "6e5a9e3cc3bb80e5ceb068fea08cb28300324f4e6e9cab0a2a8ec6ffe128b5b9"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/matrices_3072_24.log",
+    "copia": "datos/wifi/matrices_3072_24.log",
+    "sha256": "cc0e7f89840f3bb45c63f8b3e2998860a881d9b51330f320868767e22e2fc671"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/trapecio_100000000_96.log",
+    "copia": "datos/wifi/trapecio_100000000_96.log",
+    "sha256": "08c99ccdb4d624c0de3e5e184c958330a1cac8e5a58d10cebb7ae0dae2470612"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/trapecio_100000000_24.log",
+    "copia": "datos/wifi/trapecio_100000000_24.log",
+    "sha256": "06d194eecc5fd3e9f6bff587d17baa942b1edd6c1b99398e5fd8fd93857e0a6d"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/matrices_2048_96.log",
+    "copia": "datos/wifi/matrices_2048_96.log",
+    "sha256": "e3684ada6e6726bee92435732179a87b505473dc6eb881df9762e7decb220128"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/tiempos.csv",
+    "copia": "datos/wifi/tiempos.csv",
+    "sha256": "06f9287f5ac1f5074d4f0dc246b6fd390ed9780c35dbc8b322bc7a0c0bee72cd"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/matrices_1024_1.log",
+    "copia": "datos/wifi/matrices_1024_1.log",
+    "sha256": "e5da30c41f8c5176b5c4ee7b806479e3296749ab29915f9bb89ef243a61aa532"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/matrices_1024_96.log",
+    "copia": "datos/wifi/matrices_1024_96.log",
+    "sha256": "1d39726d6401d9af45a08a5be937e35b23668de84f172cf833ff2b3eaad6a9f3"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/trapecio_100000000_48.log",
+    "copia": "datos/wifi/trapecio_100000000_48.log",
+    "sha256": "b52fbca3bb2e987e3d7ec14743e3d923de889e6a6ac88a8a53abfea825460206"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/trapecio_100000000000_24.log",
+    "copia": "datos/wifi/trapecio_100000000000_24.log",
+    "sha256": "2900b684172dcb02ecf319bc87f8c144afca7110843e41ce0a5fd2a8e449a6a2"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/matrices_2048_48.log",
+    "copia": "datos/wifi/matrices_2048_48.log",
+    "sha256": "e35a3ebe84bf43c732c2cee0bcb46be062ba68f8f93e7503e2f1df3983389a9a"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/matrices_2048_24.log",
+    "copia": "datos/wifi/matrices_2048_24.log",
+    "sha256": "b95bc1a87c530ed17302689b0c7cf7142a0b4ed4665b12d7a0e057c0b5984024"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/matrices_3072_48.log",
+    "copia": "datos/wifi/matrices_3072_48.log",
+    "sha256": "5dc52c65b00879ddbdc07e98aa513b47c30808ec2b500fb32b0ed36f81286f92"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/trapecio_100000000000_48.log",
+    "copia": "datos/wifi/trapecio_100000000000_48.log",
+    "sha256": "1dc296d997846d5188b87484a31d09f3159ab3aad99a065f785d2fbe3e550a2f"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/matrices_2048_1.log",
+    "copia": "datos/wifi/matrices_2048_1.log",
+    "sha256": "2ee7e857b74b12d879e0c41adb4fa69bcbba481cab37016d4904a5d4b16e5744"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/matrices_3072_72.log",
+    "copia": "datos/wifi/matrices_3072_72.log",
+    "sha256": "7c1aee81548960440624bf22e3075c1247740ae2e64942fa381e13b7a6b4a957"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/trapecio_100000000000_96.log",
+    "copia": "datos/wifi/trapecio_100000000000_96.log",
+    "sha256": "f63a9bbc305ce10aa179f8c8ab3714808a8d47021cae0bdfbf2c2b4fe3d2a1ed"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/trapecio_100000000000_1.log",
+    "copia": "datos/wifi/trapecio_100000000000_1.log",
+    "sha256": "e0b8df4ed91ca18e3dcc396e03217c76b6e8f2309ba18ede51f6fc466ba2168a"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/matrices_1024_48.log",
+    "copia": "datos/wifi/matrices_1024_48.log",
+    "sha256": "8e123cfa3fbf3609346d94d126ca0cc4f1501860c2b7803a18e61aaea7f2ee6b"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/matrices_3072_1.log",
+    "copia": "datos/wifi/matrices_3072_1.log",
+    "sha256": "dd8dab765fb2b89e34030dd375e1b46c021a9319d48a11422a860ac2edd23843"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/trapecio_100000000000_72.log",
+    "copia": "datos/wifi/trapecio_100000000000_72.log",
+    "sha256": "3a183513fd6eea4df39e4dad6ad284ee64c573f808ae82549d8e29d6b4e63996"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/trapecio_100000000_72.log",
+    "copia": "datos/wifi/trapecio_100000000_72.log",
+    "sha256": "f51155f80776131b40c6841258947dc06596efd408753e1b1d2662d074cddb9d"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/resultados_wifi/20260924_203957_VSNY0P/matrices_1024_72.log",
+    "copia": "datos/wifi/matrices_1024_72.log",
+    "sha256": "ac9668734d3d55e74ec90076bf17eb0160c256372b9eeda275ab832e5df59f47"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/lanzar.sh",
+    "copia": "scripts/lanzar.sh",
+    "sha256": "eecafb6538d1dae16e673b3f70e1beae301654d1242f9d170af592e7c3045479"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/lanzar_wifi.sh",
+    "copia": "scripts/lanzar_wifi.sh",
+    "sha256": "e25e1fce656e336a195450cede1151dd4a1b30c3d41d22c5a4f2276f7680ed58"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/medir.sh",
+    "copia": "scripts/medir.sh",
+    "sha256": "25deddf753af979cc38ea2098579e83fbcffc7a612aa24b2b210b516a9f81876"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/medir_wifi.sh",
+    "copia": "scripts/medir_wifi.sh",
+    "sha256": "92b4598ce83eac9cfbaae3f475bdbcb7af791e5bf6a4bacb2e0721a3a35a19fb"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/graficar.py",
+    "copia": "scripts/graficar.py",
+    "sha256": "b041f9e8b3bb1e98ac29b097f0c908ec507d8ca842ac05174c014c63a6956ed6"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/comparar_eth_vs_wifi.py",
+    "copia": "scripts/comparar_eth_vs_wifi.py",
+    "sha256": "4f5c1cc4906bf1a73c4b8de85223341f3a4490e723890fb27dfc1cd91a1d89ab"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/ssh_config",
+    "copia": "scripts/ssh_config",
+    "sha256": "b3e5e53df6999be9276ffeb0c9d57bc79b4016150728b7af66856afcecd15f05"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/ssh_config_wifi",
+    "copia": "scripts/ssh_config_wifi",
+    "sha256": "05324aa94a1457b4fef281734ef64a130d28e9c17331adba8ae148bc05b0a0c1"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/src/trapecio.c",
+    "copia": "src/trapecio.c",
+    "sha256": "b7ab928666e583ea0088d8cadcfd144bd498bdb5a41dcbf1f71e0fc1b4f05b7d"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/src/mpi_matrix_2d.c",
+    "copia": "src/mpi_matrix_2d.c",
+    "sha256": "3f637894d7d696e10628302156288665be66d3397c2221d5a5f9c0e4507dc260"
+  },
+  {
+    "original": "/home/alumno16/experimentos_96/src/kernels.h",
+    "copia": "src/kernels.h",
+    "sha256": "71b955b2264d3ce53b0e9195ff6c72de8a839a4b87987d4aa72e0add485d6cde"
+  },
+  {
+    "original": "/home/alumno16/bloques_2d/resultados_bloques.json",
+    "copia": "datos/historicos/resultados_bloques.json",
+    "sha256": "e6985516f68854950750cf1477fc9840742539623a997e6ba4c25734f65fe7c4"
+  },
+  {
+    "original": "/home/alumno16/bloques_2d/eth_vs_wifi/resultados_matrices_eth_vs_wifi.json",
+    "copia": "datos/historicos/resultados_matrices_eth_vs_wifi.json",
+    "sha256": "c92c3264cc5e400cfab32a5dbebb5579a06d8cb7d6eb999495228388a42dc043"
+  },
+  {
+    "original": "/home/alumno16/resultados_profiling_repeticion.json",
+    "copia": "datos/historicos/resultados_profiling_repeticion.json",
+    "sha256": "ca07270d38868c473cc789c43da20e2ab9a0da172385182fa1d03ed482485f5b"
+  },
+  {
+    "original": "/home/alumno16/repetir_profiling_cluster.py",
+    "copia": "datos/historicos/repetir_profiling_cluster.py",
+    "sha256": "d18d6cc6026e8f1664a70a58f8bb79dda7efd030d18348fc7ffbba7747baf28f"
+  },
+  {
+    "original": "/home/alumno16/repetir_profiling_cluster.log",
+    "copia": "datos/historicos/repetir_profiling_cluster.log",
+    "sha256": "24650f26a1726501fecf063d3e804b65d8b3ebb6765536597dfa60970f4c59e0"
+  },
+  {
+    "original": "/home/alumno16/bloques_2d/ejecutar_pruebas_bloques.py",
+    "copia": "datos/historicos/ejecutar_pruebas_bloques.py",
+    "sha256": "2b5500aec781d660e46040d80c94e17931011621eb6634bb7c6ff8defcb97f9d"
+  },
+  {
+    "original": "/home/alumno16/bloques_2d/ENTORNO_HARDWARE.md",
+    "copia": "datos/historicos/ENTORNO_HARDWARE.md",
+    "sha256": "410cf49f693c771110df056c0eb208d5947932c9cfff9661c6c69d39dbcca468"
+  }
+]
