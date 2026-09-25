@@ -1,0 +1,195 @@
+\section{Configuración, compilación y comprobación}
+
+Estos comandos usan el proyecto existente. Son instrucciones de reproducción; no se ejecutaron nuevas mediciones durante la elaboración del informe.
+
+\subsection{Comprobar el software y los nodos}
+\begin{lstlisting}[language=bash]
+cd /home/alumno16/experimentos_96
+mpirun --version
+mpicc --showme:command
+lscpu
+
+for h in 10.7.50.203 10.7.50.201 10.7.50.204; do
+  ssh -F ssh_config "$h" \
+    'hostname; nproc; mpirun --version | head -1'
+done
+
+# Diagnostico de conectividad; ping no mide ancho de banda.
+ping -c 3 10.7.50.203
+ping -c 3 10.7.134.58
+\end{lstlisting}
+
+\subsection{Compilar los dos programas}
+\begin{lstlisting}[language=bash]
+cd /home/alumno16/experimentos_96
+mkdir -p /var/tmp/mpi_trapecio /var/tmp/mpi_bloques
+
+mpicc -O3 -march=native -funroll-loops \
+  src/trapecio.c -o /var/tmp/mpi_trapecio/trapecio -lm
+
+mpicc -O3 -march=native -funroll-loops \
+  src/mpi_matrix_2d.c \
+  -o /var/tmp/mpi_bloques/mpi_matrix_2d -lm
+\end{lstlisting}
+\texttt{-O3} activa optimizaciones; \texttt{-march=native} permite instrucciones de la CPU local. El despliegue presupone los equipos compatibles documentados. \archivo{/var/tmp} conserva normalmente los archivos entre reinicios, aunque una política de limpieza puede borrarlos; comprobar su existencia sigue siendo necesario.
+
+\subsection{Copiar y verificar los binarios}
+\begin{lstlisting}[language=bash]
+for h in 10.7.50.203 10.7.50.201 10.7.50.204; do
+  ssh -F ssh_config "$h" \
+    'mkdir -p /var/tmp/mpi_trapecio /var/tmp/mpi_bloques'
+  scp -F ssh_config /var/tmp/mpi_trapecio/trapecio \
+    "$h:/var/tmp/mpi_trapecio/"
+  scp -F ssh_config /var/tmp/mpi_bloques/mpi_matrix_2d \
+    "$h:/var/tmp/mpi_bloques/"
+done
+sha256sum /var/tmp/mpi_trapecio/trapecio \
+          /var/tmp/mpi_bloques/mpi_matrix_2d
+for h in 10.7.50.203 10.7.50.201 10.7.50.204; do
+  ssh -F ssh_config "$h" \
+    'sha256sum /var/tmp/mpi_trapecio/trapecio /var/tmp/mpi_bloques/mpi_matrix_2d'
+done
+\end{lstlisting}
+
+\clearpage
+\section{Comandos de lanzamiento y medición}
+
+\subsection{Una ejecución, paso a paso}
+La interfaz de los dos lanzadores es \texttt{experimento tamaño procesos}. Se aceptan los procesos 1, 24, 48, 72 y 96.
+\begin{lstlisting}[language=bash]
+cd /home/alumno16/experimentos_96
+
+# Referencia de un proceso, nodo completo y cuatro nodos.
+./lanzar.sh trapecio 100000000000 1
+./lanzar.sh trapecio 100000000000 24
+./lanzar.sh trapecio 100000000000 96
+
+# Matrices: misma version 1d tiled 64 en todos los casos.
+./lanzar.sh matrices 3072 1
+./lanzar.sh matrices 3072 24
+./lanzar.sh matrices 3072 96
+./lanzar_wifi.sh matrices 3072 96
+\end{lstlisting}
+Para ver el comando expandido y la afinidad basta conservar la salida del lanzador. Las líneas \texttt{COMANDO} de los logs documentan qué se ejecutó; no basta el nombre de la carpeta.
+
+\subsection{Batería completa y CSV}
+\begin{lstlisting}[language=bash]
+# Mostrar el plan; no ejecuta los experimentos.
+./medir.sh todos --plan
+./medir_wifi.sh todos --plan
+
+# Ejecutar una red por vez, sin otra bateria simultanea.
+./medir.sh todos
+./medir_wifi.sh todos
+
+# Tambien se puede elegir solo un experimento.
+./medir.sh trapecio
+./medir_wifi.sh matrices
+\end{lstlisting}
+Cada batería crea un directorio nuevo con fecha y sufijo aleatorio, un log por prueba y \archivo{tiempos.csv}. El CSV contiene \texttt{experimento,tamano,procesos,T\_Total}. Una fila es una ejecución; no se hacen promedios ocultos. Al terminar se invoca \archivo{graficar.py}. Si una ejecución falla o no entrega un tiempo válido, el script se detiene.
+
+\subsection{Qué hace el script de medición}
+El script recorre tamaños y procesos, ejecuta el lanzador, extrae \texttt{T\_Total} de la salida y lo añade al CSV. El cronómetro está en C; \texttt{sed} solamente lee su resultado. No hace falta \texttt{time} del shell para obtener el tiempo del algoritmo.
+
+\clearpage
+\subsection{Regenerar gráficos de las corridas actuales}
+Los siguientes comandos reutilizan datos ya guardados:
+\begin{lstlisting}[language=bash]
+cd /home/alumno16/experimentos_96
+eth=resultados/20260924_202548_RnIhhM/tiempos.csv
+wifi=resultados_wifi/20260924_203957_VSNY0P/tiempos.csv
+
+python3 graficar.py "$eth"
+python3 graficar.py "$wifi" --red Wi-Fi
+python3 comparar_eth_vs_wifi.py "$eth" "$wifi" \
+  --salida comparacion_eth_vs_wifi
+\end{lstlisting}
+Se generan tablas de métricas y gráficos de tiempo, speedup y eficiencia. La comparación calcula $T_W/T_E$. Los gráficos de este informe se regeneran con un script propio que toma copias de los mismos datos y de los históricos, con estilos aptos para impresión en blanco y negro.
+
+\subsection{Reconstruir este informe}
+\begin{lstlisting}[language=bash]
+cd /home/alumno16/informe_actual_96
+./compilar.sh
+\end{lstlisting}
+\archivo{compilar.sh} genera tablas y figuras desde \archivo{datos/} y compila \archivo{main.tex}. No llama a \texttt{mpirun}, no cambia configuraciones de los workers ni repite los experimentos.
+
+\subsection{Lectura de un resultado real}
+La línea siguiente se toma del log actual de matrices Wi-Fi, $N=3072$, $P=96$. Se muestran solo los campos necesarios para leer las fases:
+\begin{lstlisting}
+N=3072, Procs=96, Algo=1d, Kernel=tiled, BS=64
+T_Dist=95.931070, T_Calc=0.100977
+T_Gather=58.381650, T_Total=101.042337
+\end{lstlisting}
+\texttt{T\_Dist} reúne \texttt{Scatterv} y \texttt{Bcast}; esta versión no registra cada una por separado. El valor de \texttt{T\_Gather} puede incluir espera mientras otros procesos aún distribuyen o calculan. Por eso no se suma a los otros máximos para reconstruir el total.
+
+\clearpage
+\section{Cómo registrar los MB en una próxima ejecución}
+
+La batería actual no guarda MB. Para una futura prueba puntual se incluye \archivo{medir_trafico.sh}. Lee los contadores de la interfaz elegida en los cuatro nodos y llama al lanzador existente una sola vez. Consulta los workers por Ethernet para reducir el tráfico de control agregado a una medición Wi-Fi; al medir Ethernet esas consultas sí pueden contribuir al contador. Sigue siendo una medida de interfaces, sin aislamiento de tráfico ajeno.
+
+\begin{lstlisting}[language=bash]
+cd /home/alumno16/informe_actual_96
+
+# Ejemplo: UNA ejecucion adicional con registro de MB.
+# No forma parte de los resultados de este informe.
+./medir_trafico.sh wifi matrices 3072 96
+
+# Para Ethernet, cambiar solo el primer argumento:
+./medir_trafico.sh ethernet matrices 3072 96
+\end{lstlisting}
+El nuevo script deja \archivo{trafico.csv}, \archivo{antes.tsv}, \archivo{despues.tsv} y \archivo{ejecucion.log} en una carpeta nueva. Los archivos de antes y después conservan los contadores brutos, además del total calculado. No afirma que sus MB equivalgan solo a la carga útil de MPI ni a los bytes radiados.
+
+\subsection{Aislar el efecto de una opción}
+Para estudiar específicamente \texttt{vader} o el algoritmo de \texttt{Bcast}, no se debe comparar 16 procesos \texttt{ikj} con 96 \texttt{tiled} y atribuir toda la diferencia a una opción. Haría falta conservar el mismo tamaño, kernel, número de procesos y asignación. Los comandos de consulta siguientes permiten inventariar los parámetros disponibles en la versión instalada:
+\begin{lstlisting}[language=bash]
+ompi_info --version
+ompi_info --param btl vader --level 9
+ompi_info --param coll tuned --level 9
+\end{lstlisting}
+Consultar parámetros no demuestra cuál se eligió en una corrida anterior. Habría que registrar también la selección durante la ejecución o forzar explícitamente un algoritmo compatible en un experimento controlado. Es una comprobación pendiente.
+
+\clearpage
+\section{Scripts actuales conservados}
+
+Las copias de esta sección corresponden a los lanzadores y a la medición de la batería analizada. Los archivos de configuración SSH y los demás scripts acompañan al informe en \archivo{scripts/}; no se incluyen contraseñas ni claves privadas.
+
+\subsection{Lanzador Wi-Fi}
+El lanzador Ethernet usa el mismo esquema de asignación con las IP de cable. Se incluye el Wi-Fi completo para dejar visibles las opciones que interesan en la comparación histórica.
+\lstinputlisting[language=bash,basicstyle=\ttfamily\scriptsize]{scripts/lanzar_wifi.sh}
+
+\clearpage
+\subsection{Medición Bash y generación de gráficos}
+\lstinputlisting[language=bash,basicstyle=\ttfamily\scriptsize]{scripts/medir.sh}
+La variante \archivo{medir_wifi.sh} llama a \archivo{lanzar_wifi.sh}, guarda en \archivo{resultados_wifi/} e identifica la red al generar los gráficos. Ambos scripts validan que el tiempo exista y sea positivo; \textbf{no validan automáticamente los checksums}.
+
+\clearpage
+\section{Archivos de respaldo y fuentes}
+
+El paquete del informe incluye una copia de la evidencia necesaria para reproducir sus tablas y gráficos. \archivo{datos/procedencia.json} relaciona cada copia con su ruta original y su hash SHA-256; \archivo{datos/validacion.json} resume las comprobaciones. \archivo{datos/metricas_informe.csv} conserva las métricas calculadas sin el redondeo de las tablas.
+
+\begin{center}\small
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{5.5cm}X}
+\toprule
+Ruta dentro del informe & Contenido \\
+\midrule
+\archivo{datos/ethernet/} & 25 resultados actuales y sus logs por cable. \\
+\archivo{datos/wifi/} & 25 resultados actuales y sus logs Wi-Fi. \\
+\archivo{datos/historicos/resultados_profiling_repeticion.json} & Primera serie de madrugada; contiene los 906.351 s con 8 procesos. \\
+\archivo{datos/historicos/resultados_bloques.json} & Caché, escalado local y serie de madrugada con MB y dos repeticiones en el clúster. \\
+\archivo{datos/historicos/resultados_matrices_eth_vs_wifi.json} & Serie del mediodía con tiempos y MB por red. \\
+\archivo{src/} & Fuentes actuales de trapecio, matrices y kernels. \\
+\archivo{scripts/} & Copias de lanzadores, medición, gráficos y configuración SSH. \\
+\archivo{generar_datos.py} & Lee la evidencia, valida consistencia y genera tablas y cinco figuras. \\
+\archivo{medir_trafico.sh} & Herramienta opcional para una futura medición de MB. \\
+\bottomrule
+\end{tabularx}\end{center}
+
+El contexto actualizado del proyecto orientó la revisión, pero las cifras finales se tomaron de los CSV y logs. Se corrigieron diferencias de tiempo y atribuciones entre series: 1.053217 s para trapecio grande Wi-Fi actual, 906.351 s en la serie original con 8 procesos, y 1112 MB en la serie posterior con 16 procesos. Los MB actuales de 96 procesos quedan sin dato observado.
+
+\begin{thebibliography}{9}
+\raggedright
+\bibitem{foster} Ian Foster. \emph{Designing and Building Parallel Programs}, 1995. Capítulo 2: Designing Parallel Algorithms. \url{https://www.mcs.anl.gov/~itf/dbpp/text/node14.html}.
+\bibitem{ompi-tcp} Open MPI. \emph{FAQ: Tuning the run-time characteristics of MPI TCP communications}. Documentación para Open MPI 4.x y anteriores; apartados sobre transportes locales y selección de interfaces. \url{https://www.open-mpi.org/faq/?category=tcp}.
+\bibitem{ompi-source} Open MPI, versión 4.1.6. \emph{coll\_tuned\_decision\_fixed.c}, función \texttt{ompi\_coll\_tuned\_bcast\_intra\_dec\_fixed}. Código fuente oficial. \url{https://github.com/open-mpi/ompi/blob/v4.1.6/ompi/mca/coll/tuned/coll_tuned_decision_fixed.c}.
+\bibitem{datos} Registros del laboratorio del 24 de septiembre de 2026. Archivos CSV, JSON, logs y fuentes enumerados en este anexo; copias y hashes incluidos en el paquete del informe.
+\end{thebibliography}
